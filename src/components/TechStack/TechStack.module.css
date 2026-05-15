@@ -1,0 +1,166 @@
+.techstack {
+  background: #111118;
+  padding: 6.5rem 0rem;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8b5cf6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #9ca3af;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.marqueeWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.marquee {
+  position: relative;
+  width: 100%;
+}
+
+/* .marquee::before,
+  .marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+} */
+/* 
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #0a0a0f, transparent);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #0a0a0f, transparent);
+} */
+
+.track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+.reverse .track {
+  animation: scroll-reverse 30s linear infinite;
+}
+
+.card {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.iconWrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper::before {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glow-color);
+  opacity: 0.3;
+  filter: blur(12px);
+}
+
+.icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.techName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (max-width: 767.98px) {
+  .title {
+    font-size: 2rem;
+  }
+  .card {
+    width: 120px;
+    height: 120px;
+  }
+  .track {
+    animation-duration: 20s;
+  }
+  .reverse .track {
+    animation-duration: 20s;
+  }
+}
