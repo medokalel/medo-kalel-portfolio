@@ -19,7 +19,7 @@ export default function Home() {
       <Projects></Projects>
       <Journey></Journey>
       <Services></Services>
-      <Testimonials></Testimonials>
+      {/* <Testimonials></Testimonials> */}
       <Contact></Contact>
     </>
   )
