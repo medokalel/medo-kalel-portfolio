@@ -29,16 +29,16 @@ export default function About() {
             </p>
             <div className={styles.stats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>3+</span>
+                <span className={styles.statNumber}>1+</span>
                 <span className={styles.statLabel}>Years Experience</span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>50+</span>
+                <span className={styles.statNumber}>5+</span>
                 <span className={styles.statLabel}>Projects Completed</span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>20+</span>
-                <span className={styles.statLabel}>Happy Clients</span>
+                <span className={styles.statNumber}>0</span>
+                <span className={styles.statLabel}>Clients</span>
               </div>
             </div>
           </div>
