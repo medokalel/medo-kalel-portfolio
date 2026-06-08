@@ -19,13 +19,13 @@ export default function About() {
               <span className={styles.gradient}>Creating Impact</span>
             </h2>
             <p className={styles.text}>
-              I'm a passionate Front-End Developer focused on building modern and interactive web applications using React, JavaScript (ES6+), HTML, and CSS. I enjoy creating responsive user interfaces with clean designs and smooth user experiences that combine both performance and usability.
+              I'm Mohamed Khalel, a front-end developer from Egypt. I build with React, JavaScript, TypeScript, and CSS. Most of my focus goes into making interfaces that work well on any screen and don't get in the user's way.
             </p>
             <p className={styles.text}>
-              My journey in web development started with a strong interest in how websites work and how digital experiences are built. Today, I specialize in developing responsive and scalable front-end applications while continuously improving my skills through real-world projects and modern web technologies.
+              I completed the DEPI React Front-End Developer track and built several projects along the way: an e-commerce app, a weather app, and DevFolio. Honestly, I learned more from debugging those than from any course.
             </p>
             <p className={styles.text}>
-              Currently, I'm studying Engineering and participating in the Digital Egypt Pioneers Initiative (DEPI) within the React Front-End Developer track. I'm constantly working on improving my technical and problem-solving skills, with the goal of joining a professional team where I can contribute to building impactful digital products.
+              Currently interning at CASCO, one of the world's leading testing and certification companies, working on real product UI and spending a lot of time in Figma.
             </p>
             <div className={styles.stats}>
               <div className={styles.stat}>
