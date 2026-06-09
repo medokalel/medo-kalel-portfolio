@@ -1,7 +1,9 @@
 @import "tailwindcss";
-*{
+
+* {
   font-family: "Inter", sans-serif;
 }
+
 :root {
   --bg-primary: #0a0a0f;
   --bg-secondary: rgba(255, 255, 255, 0.03);
@@ -52,6 +54,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* ✅ FIX: منع الـ horizontal scroll على مستوى الـ html و body */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {

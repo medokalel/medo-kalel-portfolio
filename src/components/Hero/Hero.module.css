@@ -1,13 +1,17 @@
 .hero {
   background: #0a0a0f;
+  /* ✅ FIX: منع الـ code snippets من تعمل horizontal scroll */
+  overflow: hidden;
 }
-.heroContent{
+
+.heroContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   position: relative;
+  /* ✅ FIX: overflow hidden على الـ section نفسها */
   overflow: hidden;
   padding: 2rem 1rem;
 }
@@ -18,6 +22,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* ✅ FIX: منع تمدد الـ container */
+  width: 100%;
 }
 
 .mainContent {
@@ -26,6 +32,9 @@
   align-items: center;
   text-align: center;
   z-index: 10;
+  /* ✅ FIX: ضمان إن المحتوى مش بيطلع عن الشاشة */
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .badge {
@@ -140,39 +149,42 @@
   color: #ffffff;
 }
 
+/* ✅ FIX: Code snippets - محدودة داخل الـ hero ومش بتطلع برا */
 .codeSnippetLeft {
   position: absolute;
-  left: 7%;
-  top: 0;
+  left: 5%;
+  top: 10%;
   opacity: 0.2;
-    animation: codeBlock 5s 1s ease-in-out infinite;
+  animation: codeBlock 5s 1s ease-in-out infinite;
+  /* ✅ FIX: منع التمدد لبرا */
+  max-width: 160px;
 }
 
 .codeSnippetRightTop {
   position: absolute;
-  right: 7%;
+  right: 5%;
   top: 10%;
   opacity: 0.2;
-    animation: codeBlock 5s 2s ease-in-out infinite;
-
+  animation: codeBlock 5s 2s ease-in-out infinite;
+  max-width: 160px;
 }
 
 .codeSnippetLeftBottom {
   position: absolute;
-  left: 12%;
+  left: 5%;
   bottom: 15%;
   opacity: 0.2;
-    animation: codeBlock 5s 2s ease-in-out infinite;
-
+  animation: codeBlock 5s 2s ease-in-out infinite;
+  max-width: 160px;
 }
 
 .codeSnippetRightBottom {
   position: absolute;
-  right: 12%;
-  bottom: 0%;
+  right: 5%;
+  bottom: 10%;
   opacity: 0.2;
-    animation: codeBlock 5s 1s ease-in-out infinite;
-
+  animation: codeBlock 5s 1s ease-in-out infinite;
+  max-width: 160px;
 }
 
 .codeBlock {
@@ -182,6 +194,7 @@
   padding: 0.75rem;
   font-size: 0.75rem;
   color: #ffffff;
+  white-space: pre;
 }
 
 @keyframes codeBlock {
@@ -190,38 +203,43 @@
   100% { transform: translateY(0px); }
 }
 
-.bg1,.bg2{
+.bg1, .bg2 {
   position: absolute;
   width: 384px;
   height: 384px;
   border-radius: 100%;
   filter: blur(120px);
+  /* ✅ FIX: منع الـ blobs من تسبب scroll */
+  pointer-events: none;
 }
-.bg1{
+
+.bg1 {
   background: #6366f133;
   top: 50%;
   left: 35%;
-  transform: translate(-50%,-50%);
-  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transform: translate(-50%, -50%);
+  animation: pulseAnim 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-.bg2{
-  background:#8b5cf633;
+
+.bg2 {
+  background: #8b5cf633;
   top: 60%;
   left: 60%;
-  transform: translate(-50%,-50%);
-  animation: pulses 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  transform: translate(-50%, -50%);
+  animation: pulsesAnim 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-@keyframes pulse {
+
+@keyframes pulseAnim {
   0% { opacity: 1; }
   50% { opacity: 0.3; }
   100% { opacity: 1; }
 }
-@keyframes pulses {
+
+@keyframes pulsesAnim {
   0% { opacity: 0.3; }
   50% { opacity: 1; }
   100% { opacity: 0.3; }
 }
-
 
 .scrollIndicator {
   position: absolute;
@@ -232,6 +250,7 @@
   gap: 0.5rem;
   animation: bounce 2s infinite;
   cursor: pointer;
+  z-index: 10;
 }
 
 .scrollText {
@@ -250,9 +269,15 @@
   60% { transform: translateY(-5px); }
 }
 
-@media (max-width: 767.98px) {
+/* =================== RESPONSIVE =================== */
+
+/* Tablet */
+@media (max-width: 991.98px) {
   .title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
   }
   .codeSnippetLeft,
   .codeSnippetRightTop,
@@ -260,19 +285,51 @@
   .codeSnippetRightBottom {
     display: none;
   }
-  .bg1{
+}
+
+/* Mobile */
+@media (max-width: 767.98px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  .codeSnippetLeft,
+  .codeSnippetRightTop,
+  .codeSnippetLeftBottom,
+  .codeSnippetRightBottom {
+    display: none;
+  }
+  .bg1 {
     background: #6365f15a;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    transform: translate(-50%, -50%);
   }
-  .bg2{
+  .bg2 {
     display: none;
   }
-  @keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { opacity: 1; }
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 280px;
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+  .heroContent {
+    padding: 1.5rem 1rem;
   }
 }

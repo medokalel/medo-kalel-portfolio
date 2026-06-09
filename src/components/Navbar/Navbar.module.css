@@ -1,9 +1,3 @@
-.scrolled {
-  background: rgba(10, 10, 15, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-}
-
 .navbar {
   position: fixed;
   top: 0;
@@ -12,7 +6,16 @@
   z-index: 1000;
   padding: 1rem 0;
   background: transparent;
+    transition: background 0.3s ease, padding 0.3s ease;
 }
+
+.scrolled {
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  padding: 0.65rem 0;
+} 
 
 .container {
   max-width: 1200px;
@@ -29,6 +32,11 @@
   color: #8b5cf6;
   text-decoration: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+.logo:hover {
+  opacity: 0.85;
 }
 
 .desktopNav {
@@ -44,19 +52,51 @@
   font-weight: 500;
   transition: color 0.3s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
 }
-
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
 .navLink:hover {
   color: #ffffff;
+}
+.navLink:hover::after {
+  width: 100%;
 }
 
 .actions {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-shrink: 0;
 }
 
-.themeToggle {
+.ctaBtn {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.55rem 1.4rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  white-space: nowrap;
+}
+.ctaBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  color: #ffffff;
+}
+/* .themeToggle {
   background: transparent;
   border: none;
   color: #9ca3af;
@@ -65,36 +105,22 @@
   padding: 0.5rem;
   transition: color 0.3s ease;
 }
-
 .themeToggle:hover {
   color: #ffffff;
-}
-
-.ctaBtn {
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.ctaBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-}
-
+} */
 .burger {
   display: none;
   background: transparent;
   border: none;
   color: #9ca3af;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+.burger:hover {
+  color: #ffffff;
 }
 
 .sidebar {
@@ -104,11 +130,11 @@
   width: 300px;
   height: 100vh;
   background: #1a1a2e;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 1100;
-  transition: right 0.3s ease;
-  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
 }
-
 .sidebar.open {
   right: 0;
 }
@@ -116,12 +142,11 @@
 .sidebarContent {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 1.5rem;
   gap: 1.5rem;
 }
 
 .closeBtn {
-  align-self: flex-end;
   background: transparent;
   border: none;
   color: #9ca3af;
@@ -129,6 +154,16 @@
   cursor: pointer;
   padding: 0.5rem;
   margin-bottom: 1rem;
+  align-self: flex-end;
+}
+
+.sidebarLinks {
+  color: #9ca3af;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
 }
 
 .sidebarLink {
@@ -137,10 +172,9 @@
   font-size: 1.1rem;
   font-weight: 500;
   padding: 0.5rem 0;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .sidebarLink:hover {
   color: #ffffff;
 }
@@ -158,9 +192,10 @@
   transition: transform 0.3s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .sidebarCta:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  color: #ffffff;
 }
 
 .overlay {
@@ -170,8 +205,10 @@
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 1050;
+  animation: fadeIn 0.3s ease;
 }
 
 @media (max-width: 768px) {
