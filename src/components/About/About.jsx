@@ -33,11 +33,11 @@ export default function About() {
                 <span className={styles.statLabel}>Years Experience</span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>5+</span>
+                <span className={styles.statNumber}>10+</span>
                 <span className={styles.statLabel}>Projects Completed</span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>0</span>
+                <span className={styles.statNumber}>2</span>
                 <span className={styles.statLabel}>Clients</span>
               </div>
             </div>
