@@ -4,7 +4,7 @@ import mohamed from '../../assets/images/Mohamed Khalel 1.png'
 
 export default function About() {
   const skills = [
-    'React', 'TypeScript', 'Tailwind', 'Bootstrap', 'HTML5', 'CSS3', 'JavaScript' ,'Redux', 'REST APIs', 'Figma', 'Git'
+    'React', 'TypeScript', 'Tailwind', 'Bootstrap', 'HTML5', 'CSS3', 'JavaScript' , 'REST APIs', 'Figma', 'Git'
   ]
 
   return (
