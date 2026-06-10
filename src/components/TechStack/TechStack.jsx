@@ -3,8 +3,6 @@ import styles from './TechStack.module.css'
 
 export default function TechStack() {
   const techs = [
-    { name: 'Redux', color: '#764abc' },
-    { name: 'Next.js', color: '#ffffff' },
     { name: 'JavaScript', color: '#f7df1e' },
     { name: 'HTML5', color: '#e34f26' },
     { name: 'CSS3', color: '#1572b6' },
@@ -15,8 +13,6 @@ export default function TechStack() {
     { name: 'Figma', color: '#f24e1e' },
     { name: 'Git', color: '#f05032' },
     { name: 'GitHub', color: '#ffffff' },
-    { name: 'Redux', color: '#764abc' },
-    { name: 'Next.js', color: '#ffffff' },
     { name: 'JavaScript', color: '#f7df1e' },
     { name: 'HTML5', color: '#e34f26' },
     { name: 'CSS3', color: '#1572b6' },
