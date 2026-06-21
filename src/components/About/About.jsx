@@ -51,7 +51,7 @@ export default function About() {
               <p className={styles.role}>Front-End Developer</p>
               <div className={styles.location}>
                 <i className="fas fa-map-marker-alt"></i>
-                <span>Tanta, Egypt</span>
+                <span>Marsa Matrouh, Egypt</span>
               </div>
               <div className={styles.divider}></div>
               <h4 className={styles.skillsTitle}>Skills & Technologies</h4>
