@@ -130,7 +130,7 @@ export default function Contact() {
                 </div>
                 <div className={styles.infoContent}>
                   <h4 className={styles.infoTitle}>Location</h4>
-                  <p className={styles.infoValue}>Tanta, Egypt</p>
+                  <p className={styles.infoValue}>Marsa Matrouh, Egypt</p>
                 </div>
               </div>
               <div className={styles.infoCard}>
