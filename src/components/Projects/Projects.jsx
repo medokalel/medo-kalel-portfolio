@@ -34,7 +34,7 @@ export default function Projects() {
       description: 'A modern QR code landing page featuring responsive design, clean UI, smooth interactions, and a scrolling logo marquee showcasing trusted brands for a more engaging user experience.',
       image: qrLandingPage,
       tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
-      liveUrl: 'https://stately-rolypoly-069223.netlify.app/',
+      liveUrl: 'https://qr-landing-page-nine.vercel.app/',
       codeUrl: 'https://github.com/medokalel/qr-landing-page'
     },
     {
