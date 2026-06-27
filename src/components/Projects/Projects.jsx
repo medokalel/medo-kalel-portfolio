@@ -14,7 +14,7 @@ export default function Projects() {
       description: 'A modern e-commerce platform with real-time inventory, payment integration, and advanced product filtering.',
       image: ecommerce,
       tags: ['React', 'JavaScript', 'Bootstrap', 'CSS3'],
-      liveUrl: 'https://jolly-crisp-1b2e2d.netlify.app/',
+      liveUrl: 'https://react-ecommerce-app-sigma.vercel.app/',
       codeUrl: 'https://github.com/medokalel/react-ecommerce-app'
     },
     {
