@@ -41,7 +41,7 @@ export default function Projects() {
       id: 4,
       category: 'Portfolio',
       title: 'Portfolio WebSite',
-      description: 'No-code portfolio builder with customizable templates, drag-and-drop editor, and instant deployment.',
+      description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
       image: portfolio,
       tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
       liveUrl: 'https://medo-kalel-portfolio.vercel.app/',
