@@ -44,7 +44,7 @@ export default function Projects() {
       description: 'No-code portfolio builder with customizable templates, drag-and-drop editor, and instant deployment.',
       image: portfolio,
       tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
-      liveUrl: '#',
+      liveUrl: 'https://medo-kalel-portfolio.vercel.app/',
       codeUrl: '#'
     }
   ]
