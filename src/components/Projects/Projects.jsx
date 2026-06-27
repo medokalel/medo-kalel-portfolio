@@ -9,7 +9,7 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      category: 'React',
+      category: 'Platform',
       title: 'E-Commerce Platform',
       description: 'A modern e-commerce platform with real-time inventory, payment integration, and advanced product filtering.',
       image: ecommerce,
@@ -19,7 +19,7 @@ export default function Projects() {
     },
     {
       id: 2,
-      category: 'JavaScript',
+      category: 'Landing Page',
       title: 'Landing Page',
       description: 'A modern and responsive coffee website featuring smooth animations, interactive sections, and a visually engaging user experience.',
       image: landingPage,
@@ -29,7 +29,7 @@ export default function Projects() {
     },
     {
       id: 3,
-      category: 'JavaScript',
+      category: 'Landing Page',
       title: 'Qr Landing Page',
       description: 'A modern QR code landing page featuring responsive design, clean UI, smooth interactions, and a scrolling logo marquee showcasing trusted brands for a more engaging user experience.',
       image: qrLandingPage,
@@ -39,7 +39,7 @@ export default function Projects() {
     },
     {
       id: 4,
-      category: 'React',
+      category: 'Portfolio',
       title: 'Portfolio WebSite',
       description: 'No-code portfolio builder with customizable templates, drag-and-drop editor, and instant deployment.',
       image: portfolio,
