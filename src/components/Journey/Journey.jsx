@@ -18,7 +18,7 @@ const experiences = [
     id: 2,
     title: 'React Front-End Developer Trainee',
     company: 'Digital Egypt Pioneers Initiative (DEPI)',
-    companyLinke: 'https://depi.gov.eg/',
+    companyLink: 'https://depi.gov.eg/',
     period: '2025 - 2026',
     description: 'Currently enrolled in an intensive React Front-End Development track focused on building modern, responsive web applications and applying industry best practices.',
     achievements: ['Completed HTML5, CSS3 & Responsive Design modules', 'Building real-world React projects', 'Improving problem-solving & UI skills'],
