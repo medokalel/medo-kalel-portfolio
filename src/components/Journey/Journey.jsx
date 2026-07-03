@@ -55,7 +55,7 @@ const experiences = [
               <div className={styles.period}>{exp.period}</div>
               <div className={styles.card}>
                 <h3 className={styles.cardTitle}>{exp.title}</h3>
-                <Link to={exp.companyLink} className={'text-decoration-none'} > <p className={styles.company}>{exp.company}</p> </Link> 
+                <Link to={exp.companyLink} target="_blank" className={'text-decoration-none'} > <p className={styles.company}>{exp.company}</p> </Link> 
                 <p className={styles.description}>{exp.description}</p>
                 <div className={styles.achievements}>
                   {exp.achievements.map((achievement) => (
