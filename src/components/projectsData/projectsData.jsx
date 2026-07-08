@@ -16,7 +16,7 @@ export const projectsData = [
     tags: ['React', 'JavaScript', 'Bootstrap', 'CSS3'],
     liveUrl: 'https://react-ecommerce-app-sigma.vercel.app/',
     codeUrl: 'https://github.com/medokalel/react-ecommerce-app',
-    date: '2026-06-15'
+    date: '2026-05-13'
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const projectsData = [
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     liveUrl: 'https://medokalel.github.io/velora-coffee/',
     codeUrl: 'https://github.com/medokalel/velora-coffee',
-    date: '2026-05-28'
+    date: '2026-05-08'
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const projectsData = [
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     liveUrl: 'https://qr-landing-page-nine.vercel.app/',
     codeUrl: 'https://github.com/medokalel/qr-landing-page',
-    date: '2026-05-20'
+    date: '2026-05-14'
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const projectsData = [
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://medo-kalel-portfolio.vercel.app/',
     codeUrl: '#',
-    date: '2026-04-10'
+    date: '2026-06-10'
   }
 ]
 

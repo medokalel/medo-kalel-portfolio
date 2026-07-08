@@ -17,7 +17,6 @@ export default function Home() {
       <TechStack></TechStack>
       <ScrollToTop></ScrollToTop>
       <Projects></Projects>
-
       <Journey></Journey>
       <Services></Services>
       {/* <Testimonials></Testimonials> */}
