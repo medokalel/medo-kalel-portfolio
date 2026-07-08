@@ -50,6 +50,37 @@ export const projectsData = [
     liveUrl: 'https://medo-kalel-portfolio.vercel.app/',
     codeUrl: '#',
     date: '2026-06-10'
+  },
+  {
+    id: 5,
+    category: 'Portfolio',
+    title: 'Portfolio WebSite for Backend Developer',
+    description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
+    image: portfolio,
+    tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
+    liveUrl: 'https://alex-portfolio-weld.vercel.app/',
+    codeUrl: 'https://github.com/medokalel/alex-portfolio',
+    date: '2026-07-7'
+  },{
+    id: 6,
+    category: 'Portfolio',
+    title: 'Portfolio WebSite for Backend Developer',
+    description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
+    image: portfolio,
+    tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
+    liveUrl: 'https://ahmed-samir-portfolio-pi.vercel.app/',
+    codeUrl: 'https://github.com/medokalel/ahmed-samir-portfolio',
+    date: '2026-07-6'
+  },{
+    id: 7,
+    category: 'Portfolio',
+    title: 'Portfolio WebSite for Web Design',
+    description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
+    image: portfolio,
+    tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
+    liveUrl: 'https://youssef-kamel-portfolio.vercel.app/',
+    codeUrl: 'https://github.com/medokalel/youssef-kamel-portfolio',
+    date: '2026-07-8'
   }
 ]
 
