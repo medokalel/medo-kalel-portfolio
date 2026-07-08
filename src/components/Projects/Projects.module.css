@@ -48,6 +48,46 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Filter Buttons */
+.filterContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9ca3af;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+}
+
+.filterBtn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.filterBtnActive {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+  border-color: #8b5cf6;
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.15), 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
 .grid {
   margin-top: 2rem;
 }
@@ -59,6 +99,18 @@
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease;
   height: 100%;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card:hover {
@@ -128,6 +180,16 @@
   padding: 1.5rem;
 }
 
+/* Meta Row - Category + Date */
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .category {
   display: inline-block;
   background: rgba(99, 102, 241, 0.15);
@@ -137,8 +199,22 @@
   border-radius: 2rem;
   font-size: 0.75rem;
   font-weight: 500;
-  margin-bottom: 0.8rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.date i {
+  color: #8b5cf6;
+  font-size: 0.8rem;
 }
 
 .cardTitle {
@@ -177,5 +253,20 @@
 @media (max-width: 767.98px) {
   .title {
     font-size: 2rem;
+  }
+
+  .filterContainer {
+    gap: 0.5rem;
+  }
+
+  .filterBtn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .metaRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
   }
 }
