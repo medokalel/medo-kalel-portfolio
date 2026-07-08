@@ -3,7 +3,9 @@
 
 import ecommerce from '../../assets/images/ProductService Landing Page Website in Black Blue Techflux Style.png'
 import landingPage from '../../assets/images/ProductService Landing Page Website in Black Blue Techflu Style.png'
-import portfolio from '../../assets/images/Screenshot 2026-05-14 210051.png'
+import youssefKamelPortfolio from '../../assets/images/Screenshot 2026-07-09 024443.png'
+import ahmedSamirPortfolio from '../../assets/images/Screenshot 2026-07-09 024515.png'
+import alexPortfolio from '../../assets/images/Screenshot 2026-07-09 024600.png'
 import qrLandingPage from '../../assets/images/Screenshot 2026-05-14 210400.png'
 
 export const projectsData = [
@@ -43,40 +45,29 @@ export const projectsData = [
   {
     id: 4,
     category: 'Portfolio',
-    title: 'Portfolio WebSite',
-    description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
-    image: portfolio,
-    tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
-    liveUrl: 'https://medo-kalel-portfolio.vercel.app/',
-    codeUrl: '#',
-    date: '2026-06-10'
-  },
-  {
-    id: 5,
-    category: 'Portfolio',
     title: 'Portfolio WebSite for Backend Developer',
     description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
-    image: portfolio,
+    image: alexPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://alex-portfolio-weld.vercel.app/',
     codeUrl: 'https://github.com/medokalel/alex-portfolio',
     date: '2026-07-7'
   },{
-    id: 6,
+    id: 5,
     category: 'Portfolio',
     title: 'Portfolio WebSite for Backend Developer',
     description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
-    image: portfolio,
+    image: ahmedSamirPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://ahmed-samir-portfolio-pi.vercel.app/',
     codeUrl: 'https://github.com/medokalel/ahmed-samir-portfolio',
     date: '2026-07-6'
   },{
-    id: 7,
+    id: 6,
     category: 'Portfolio',
     title: 'Portfolio WebSite for Web Design',
     description: 'My personal portfolio built with React and CSS Modules, featuring smooth animations, a responsive design, and sections for projects, services, and journey to showcase my skills as a front-end developer.',
-    image: portfolio,
+    image: youssefKamelPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://youssef-kamel-portfolio.vercel.app/',
     codeUrl: 'https://github.com/medokalel/youssef-kamel-portfolio',
