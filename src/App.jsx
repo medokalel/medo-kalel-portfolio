@@ -2,6 +2,7 @@ import './App.css'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import Home from './components/Home/Home'
+import ProjectsPage from './components/ProjectsPage/ProjectsPage'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       {index: true,element:<Home/>},
       {path:'home',element:<Home/>},
     ]},
+    {path:'projectspage',element:<ProjectsPage/>},
   ])
 
   return (

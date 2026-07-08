@@ -48,46 +48,6 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Filter Buttons */
-.filterContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
-}
-
-.filterBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #9ca3af;
-  padding: 0.6rem 1.4rem;
-  border-radius: 2rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  outline: none;
-}
-
-.filterBtn:hover {
-  background: rgba(139, 92, 246, 0.1);
-  border-color: rgba(139, 92, 246, 0.3);
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-.filterBtnActive {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
-  border-color: #8b5cf6;
-  color: #ffffff;
-  box-shadow: 0 0 25px rgba(139, 92, 246, 0.15), 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
 .grid {
   margin-top: 2rem;
 }
@@ -180,7 +140,6 @@
   padding: 1.5rem;
 }
 
-/* Meta Row - Category + Date */
 .metaRow {
   display: flex;
   align-items: center;
@@ -250,23 +209,58 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* View All Button */
+.viewAllContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.viewAllBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+  color: #ffffff;
+}
+
+.viewAllBtn i {
+  transition: transform 0.3s ease;
+}
+
+.viewAllBtn:hover i {
+  transform: translateX(4px);
+}
+
 @media (max-width: 767.98px) {
   .title {
     font-size: 2rem;
-  }
-
-  .filterContainer {
-    gap: 0.5rem;
-  }
-
-  .filterBtn {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
   }
 
   .metaRow {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.4rem;
+  }
+
+  .viewAllBtn {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.9rem;
   }
 }
