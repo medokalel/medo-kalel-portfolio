@@ -46,7 +46,7 @@ export const projectsData = [
     id: 4,
     category: 'Portfolio',
     title: 'Portfolio WebSite for Backend Developer',
-    description: 'A responsive personal portfolio website designed to highlight professional experience, technical skills, and featured projects. Built with a modern, clean interface and smooth user experience to leave a lasting impression.',
+    description: 'A clean and responsive portfolio website built to present projects, skills, and personal information with a modern design, intuitive navigation, and a seamless user experience.',
     image: alexPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://alex-portfolio-weld.vercel.app/',
