@@ -83,7 +83,43 @@
 @theme {
   /* Latin UI font. Task 11 adds an Arabic font here. */
   --font-sans: "Inter", sans-serif;
+  /* The nav/footer text historically used the system UI font; kept for visual parity.
+     Task 11 unifies the fonts. */
+  --font-system: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Fixed colors (same in both themes) */
+  --color-drawer: #1a1a2e;
+  --color-heart: #ec4899;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.3s ease;
+  --animate-heartbeat: heartbeat 1.5s infinite;
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
 
   /* Named breakpoints — add new ones here, never inline min-[Npx] values. */
   --breakpoint-xs: 25rem; /* 400px */
+}
+
+/*
+ * Page container — same widths the Bootstrap `.container` had, so every section lines up.
+ * Use `site-container` instead of Bootstrap's `container` (which is removed in Task 9).
+ */
+@utility site-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 0.75rem;
+
+  @media (min-width: 576px) { max-width: 540px; }
+  @media (min-width: 768px) { max-width: 720px; }
+  @media (min-width: 992px) { max-width: 960px; }
+  @media (min-width: 1200px) { max-width: 1140px; }
+  @media (min-width: 1400px) { max-width: 1320px; }
 }
