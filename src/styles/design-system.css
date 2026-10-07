@@ -1,1 +1,89 @@
-/* Design tokens (colors, fonts, breakpoints) go here inside an @theme block. Filled in Task 3. */
+/**
+ * Design tokens for the portfolio.
+ *
+ * Two layers:
+ *  1) Runtime theme variables (:root / [data-theme="light"]) — values that change
+ *     with the theme. The existing CSS Modules still read these (var(--bg-primary)...).
+ *  2) Tailwind tokens (@theme) — expose the same values as utilities
+ *     (bg-page, text-fg, text-fg-muted, border-line, bg-card, text-accent ...).
+ *
+ * Always add new colors / fonts / breakpoints here — never hard-code them in components.
+ */
+
+/* ── 1) Runtime theme variables (dark is the default) ── */
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: rgba(255, 255, 255, 0.03);
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --placeholder-color: #4b5563;
+  --gradient-start: #6366f1;
+  --gradient-end: #8b5cf6;
+  --accent-color: #8b5cf6;
+  --success-color: #22c55e;
+  --star-color: #8b5cf6;
+  --shadow-color: rgba(99, 102, 241, 0.4);
+  --glow-color: rgba(99, 102, 241, 0.15);
+  --overlay-bg: rgba(0, 0, 0, 0.6);
+  --code-opacity: 0.15;
+  --nav-bg: transparent;
+  --nav-scrolled: rgba(10, 10, 15, 0.95);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --card-bg: #ffffff;
+  --input-bg: #f1f5f9;
+  --placeholder-color: #94a3b8;
+  --gradient-start: #4f46e5;
+  --gradient-end: #7c3aed;
+  --accent-color: #7c3aed;
+  --success-color: #16a34a;
+  --star-color: #7c3aed;
+  --shadow-color: rgba(79, 70, 229, 0.3);
+  --glow-color: rgba(79, 70, 229, 0.1);
+  --overlay-bg: rgba(0, 0, 0, 0.4);
+  --code-opacity: 0.08;
+  --nav-bg: transparent;
+  --nav-scrolled: rgba(248, 250, 252, 0.95);
+}
+
+/* ── 2) Tailwind tokens ── */
+
+/* Theme-aware colors: `inline` makes the utilities read the runtime variable
+   above, so they switch automatically with [data-theme]. */
+@theme inline {
+  --color-page: var(--bg-primary);
+  --color-surface: var(--bg-secondary);
+  --color-card: var(--card-bg);
+  --color-field: var(--input-bg);
+  --color-line: var(--border-color);
+  --color-fg: var(--text-primary);
+  --color-fg-muted: var(--text-secondary);
+  --color-fg-subtle: var(--text-muted);
+  --color-placeholder: var(--placeholder-color);
+  --color-accent: var(--accent-color);
+  --color-brand-from: var(--gradient-start);
+  --color-brand-to: var(--gradient-end);
+  --color-success: var(--success-color);
+  --color-overlay: var(--overlay-bg);
+  --color-nav-scrolled: var(--nav-scrolled);
+}
+
+/* Static tokens */
+@theme {
+  /* Latin UI font. Task 11 adds an Arabic font here. */
+  --font-sans: "Inter", sans-serif;
+
+  /* Named breakpoints — add new ones here, never inline min-[Npx] values. */
+  --breakpoint-xs: 25rem; /* 400px */
+}
