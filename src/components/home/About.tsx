@@ -1,0 +1,93 @@
+import avatar from '@/assets/images/Mohamed Khalel 1.png'
+import { skills, stats } from '@/content/profile'
+
+const badges = [
+  { id: 'certified', icon: 'fas fa-award', label: 'Certified' },
+  { id: 'coffee', icon: 'fas fa-coffee', label: 'Coffee Addict' },
+] as const
+
+export default function About() {
+  return (
+    <section id="about" className="relative bg-page px-4 py-24">
+      <div className="site-container">
+        <div className="grid grid-cols-1 items-start gap-x-6 lg:grid-cols-2">
+          <div className="max-lg:mb-12">
+            <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">
+              About Me
+            </span>
+            <h2 className="mb-6 text-5xl leading-[1.1] font-extrabold text-fg max-lg:text-[2.2rem] max-sm:text-[1.8rem]">
+              Crafting Code,
+              <br />
+              <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">
+                Creating Impact
+              </span>
+            </h2>
+            <p className="mb-[1.2rem] text-base leading-[1.7] text-fg-muted">
+              I'm Mohamed Khalel, a front-end developer from Egypt. I build with React, JavaScript, TypeScript, and CSS. Most of my focus goes into making interfaces that work well on any screen and don't get in the user's way.
+            </p>
+            <p className="mb-[1.2rem] text-base leading-[1.7] text-fg-muted">
+              I completed the DEPI React Front-End Developer track and built several projects along the way: an e-commerce app, a weather app, and DevFolio. Honestly, I learned more from debugging those than from any course.
+            </p>
+            <p className="mb-[1.2rem] text-base leading-[1.7] text-fg-muted">
+              Currently interning at CASCO, one of the world's leading testing and certification companies, working on real product UI and spending a lot of time in Figma.
+            </p>
+
+            <dl className="mt-8 mb-0 flex justify-between gap-12 max-lg:gap-8 max-sm:gap-6">
+              {stats.map((stat) => (
+                <div key={stat.id} className="flex flex-col-reverse">
+                  <dt className="mt-[0.3rem] text-[0.85rem] font-normal text-fg-subtle">{stat.label}</dt>
+                  <dd className="m-0 text-4xl leading-none font-extrabold text-brand-from max-lg:text-[2rem] max-sm:text-[1.8rem]">
+                    {stat.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="flex justify-center">
+            <div className="flex w-full max-w-[480px] flex-col items-center rounded-3xl border border-line bg-card p-10 text-center max-lg:max-w-full max-sm:p-6">
+              <div className="mb-6 flex size-[130px] items-center justify-center rounded-full bg-linear-135/srgb from-brand-from to-brand-to">
+                <img
+                  src={avatar}
+                  alt="Portrait of Mohamed Khalel"
+                  width={130}
+                  height={130}
+                  className="size-full rounded-full object-cover"
+                />
+              </div>
+              <h3 className="mb-[0.3rem] text-[1.3rem] leading-[1.2] font-bold text-fg">Mohamed Khalel</h3>
+              <p className="mb-[0.8rem] text-[0.9rem] text-fg-muted">Front-End Developer</p>
+              <div className="mb-6 flex items-center gap-2 text-[0.85rem] text-fg-subtle">
+                <i className="fas fa-map-marker-alt text-accent" aria-hidden="true"></i>
+                <span>Marsa Matrouh, Egypt</span>
+              </div>
+              <div className="mb-6 h-px w-full bg-line"></div>
+              <h4 className="mb-4 text-[0.9rem] leading-[1.2] font-semibold text-fg">Skills &amp; Technologies</h4>
+              <ul className="mb-6 flex flex-wrap justify-center gap-2 p-0">
+                {skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="rounded-full border border-brand-from/30 bg-brand-from/15 px-3 py-1 text-xs font-medium text-accent"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex w-full gap-[0.8rem]">
+                {badges.map((badge) => (
+                  <div
+                    key={badge.id}
+                    className="flex flex-1 flex-col items-center gap-[0.3rem] rounded-[0.8rem] border border-line bg-fg/5 p-4"
+                  >
+                    <i className={`${badge.icon} text-[1.2rem] text-accent`} aria-hidden="true"></i>
+                    <span className="text-[0.8rem] text-fg-muted">{badge.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

@@ -41,7 +41,7 @@ export default function Footer() {
 
           <p className="m-0 flex items-center gap-[0.4rem] font-system text-[0.85rem] text-fg-muted">
             Built with
-            <i className="fas fa-heart animate-heartbeat text-[0.75rem] text-heart" aria-label="love" role="img"></i>
+            <i className="fas fa-heart animate-heartbeat text-[0.75rem] text-brand-pink" aria-label="love" role="img"></i>
             using React &amp; Tailwind CSS
           </p>
         </div>

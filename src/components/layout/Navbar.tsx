@@ -1,16 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { brandName, ctaItem, navItems } from '@/content/navigation'
 import { cn } from '@/lib/utils'
+import Button from '@/components/ui/Button'
 
 const focusRing =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
-
-const ctaStyles = cn(
-  'rounded-full bg-linear-135/srgb from-brand-from to-brand-to font-system font-semibold text-white no-underline',
-  'transition-[transform,box-shadow] duration-300',
-  'hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(99,102,241,0.4)]',
-  focusRing,
-)
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -122,12 +116,9 @@ export default function Navbar() {
           </div>
 
           <div className="flex shrink-0 items-center gap-4">
-            <a
-              href={ctaItem.href}
-              className={cn(ctaStyles, 'px-[1.4rem] py-[0.55rem] text-[0.9rem] whitespace-nowrap max-md:hidden')}
-            >
+            <Button href={ctaItem.href} size="sm" className="font-system whitespace-nowrap max-md:hidden">
               {ctaItem.label}
-            </a>
+            </Button>
             <button
               ref={burgerRef}
               type="button"
@@ -191,13 +182,14 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-            <a
+            <Button
               href={ctaItem.href}
+              size="lg"
               onClick={() => closeMenu(false)}
-              className={cn(ctaStyles, 'mt-4 px-6 py-[0.8rem] text-center text-base')}
+              className="mt-4 font-system"
             >
               {ctaItem.label}
-            </a>
+            </Button>
           </nav>
         </div>
       </aside>
