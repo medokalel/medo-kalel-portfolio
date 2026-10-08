@@ -90,6 +90,7 @@
   /* Fixed colors (same in both themes) */
   --color-drawer: #1a1a2e;
   --color-brand-pink: #ec4899;
+  --color-section-alt: #111118;
 
   /* Animations */
   --animate-fade-in: fade-in 0.3s ease;
@@ -101,6 +102,8 @@
   --animate-glow-out: glow-out 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-hero-bounce: hero-bounce 2s infinite;
   --animate-fade-in-up: fade-in-up 0.5s ease forwards;
+  --animate-pulse-dot: pulse-dot 2s infinite;
+  --animate-ripple: ripple 2s infinite;
 
   @keyframes fade-in {
     from { opacity: 0; }
@@ -134,6 +137,14 @@
   @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  @keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
   }
 
   /* Named breakpoints — same values as the old Bootstrap grid, so layouts don't shift.
