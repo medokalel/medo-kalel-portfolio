@@ -1,16 +1,22 @@
+/*
+ * Cascade order: Tailwind's layers, nothing else. Component styles are utilities in the markup.
+ */
+@layer theme, base, components, utilities;
+
 @import "tailwindcss";
 @import "./styles/design-system.css";
 @import "./styles/swiper.css";
-
 /*
  * Tailwind's preflight already resets margin / padding / box-sizing, so the old
  * `* { margin: 0; padding: 0; box-sizing: border-box }` rule is gone — being
  * un-layered, it would have overridden every Tailwind margin/padding utility.
  */
 
-/* Applies to every element (same behaviour as before); Task 11 switches it per language. */
-* {
-  font-family: var(--font-sans);
+/* Applies to every element (same behaviour as before); a later task switches it per language. */
+@layer base {
+  * {
+    font-family: var(--font-sans);
+  }
 }
 
 /* Prevent horizontal scroll at the html and body level */

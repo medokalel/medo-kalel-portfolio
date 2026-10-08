@@ -50,7 +50,7 @@ export default function Journey() {
                     'max-md:ms-2.5 max-md:me-0 max-md:w-full',
                   )}
                 >
-                  <h3 className="mb-[0.3rem] text-[1.1rem] font-bold text-fg">{exp.title}</h3>
+                  <h3 className="mb-[0.3rem] text-[1.1rem] leading-[1.2] font-bold text-fg">{exp.title}</h3>
                   <p className="mb-[0.8rem] text-[0.85rem] text-accent">
                     {exp.companyLink ? (
                       <a
