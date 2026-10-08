@@ -104,6 +104,8 @@
   --animate-fade-in-up: fade-in-up 0.5s ease forwards;
   --animate-pulse-dot: pulse-dot 2s infinite;
   --animate-ripple: ripple 2s infinite;
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
 
   @keyframes fade-in {
     from { opacity: 0; }
@@ -145,6 +147,14 @@
   @keyframes ripple {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
     100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
   }
 
   /* Named breakpoints — same values as the old Bootstrap grid, so layouts don't shift.

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./styles/design-system.css";
+@import "./styles/swiper.css";
 
 /*
  * Tailwind's preflight already resets margin / padding / box-sizing, so the old

@@ -1,0 +1,10 @@
+/* Swiper injects pagination bullets itself and needs a single class name for them,
+   so these two are the only component classes that cannot be inline utilities. */
+@layer components {
+  .tm-bullet {
+    @apply inline-block size-2 cursor-pointer rounded-full bg-accent/30 transition-all duration-300;
+  }
+  .tm-bullet-active {
+    @apply w-6 rounded-[4px] bg-accent;
+  }
+}
