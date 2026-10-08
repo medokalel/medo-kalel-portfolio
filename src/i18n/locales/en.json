@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Mohamed Khalel | Front-End Developer"
+  },
+  "brand": "Mohamed Khalel",
+  "nav": {
+    "primary": "Primary",
+    "mobile": "Mobile",
+    "siteMenu": "Site menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "about": "About",
+    "projects": "Projects",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Let's Talk"
+  },
+  "language": {
+    "switchTo": "Switch language to {{language}}"
+  },
+  "hero": {
+    "available": "Available for Work",
+    "titleLine1": "Building Digital",
+    "titleHighlight": "Experiences",
+    "titleLine3": "That Matter",
+    "subtitle": "Front-End Developer specializing in React, TypeScript & Modern UI",
+    "viewWork": "View My Work",
+    "contactMe": "Contact Me",
+    "scroll": "Scroll to explore",
+    "opensInNewTab": "{{name}} (opens in a new tab)"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "backToTop": "Back to Top",
+    "builtWith": "Built with",
+    "love": "love",
+    "using": "using React & Tailwind CSS"
+  }
+}

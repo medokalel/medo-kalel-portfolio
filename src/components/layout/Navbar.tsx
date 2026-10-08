@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { brandName, ctaItem, navItems } from '@/content/navigation'
+import { useTranslation } from 'react-i18next'
+import { ctaHref, navItems } from '@/content/navigation'
 import { cn } from '@/lib/utils'
 import Button from '@/components/ui/Button'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
 const focusRing =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(() => window.scrollY > 50)
   const burgerRef = useRef<HTMLButtonElement>(null)
@@ -82,7 +85,7 @@ export default function Navbar() {
         )}
       >
         <nav
-          aria-label="Primary"
+          aria-label={t('nav.primary')}
           className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-8"
         >
           <a
@@ -93,7 +96,7 @@ export default function Navbar() {
               focusRing,
             )}
           >
-            {brandName}
+            {t('brand')}
           </a>
 
           <div className="hidden items-center gap-8 md:flex">
@@ -110,19 +113,20 @@ export default function Navbar() {
                   focusRing,
                 )}
               >
-                {item.label}
+                {t(`nav.${item.id}`)}
               </a>
             ))}
           </div>
 
           <div className="flex shrink-0 items-center gap-4">
-            <Button href={ctaItem.href} size="sm" className="font-system whitespace-nowrap max-md:hidden">
-              {ctaItem.label}
+            <LanguageSwitcher className="max-md:hidden" />
+            <Button href={ctaHref} size="sm" className="font-system whitespace-nowrap max-md:hidden">
+              {t('nav.cta')}
             </Button>
             <button
               ref={burgerRef}
               type="button"
-              aria-label="Open menu"
+              aria-label={t('nav.openMenu')}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               onClick={() => setIsOpen(true)}
@@ -143,7 +147,7 @@ export default function Navbar() {
         ref={drawerRef}
         role="dialog"
         aria-modal="true"
-        aria-label="Site menu"
+        aria-label={t('nav.siteMenu')}
         inert={!isOpen}
         className={cn(
           'fixed end-0 top-0 z-[1100] h-screen w-[300px] border-s border-line bg-drawer',
@@ -156,7 +160,7 @@ export default function Navbar() {
           <button
             ref={closeRef}
             type="button"
-            aria-label="Close menu"
+            aria-label={t('nav.closeMenu')}
             onClick={() => closeMenu(true)}
             className={cn(
               'mb-4 cursor-pointer self-end border-0 bg-transparent p-2 text-[1.5rem] text-fg-muted',
@@ -167,7 +171,7 @@ export default function Navbar() {
             <i className="fas fa-times" aria-hidden="true"></i>
           </button>
 
-          <nav aria-label="Mobile" className="flex flex-col gap-6">
+          <nav aria-label={t('nav.mobile')} className="flex flex-col gap-6">
             {navItems.map((item) => (
               <a
                 key={item.id}
@@ -179,16 +183,17 @@ export default function Navbar() {
                   focusRing,
                 )}
               >
-                {item.label}
+                {t(`nav.${item.id}`)}
               </a>
             ))}
+            <LanguageSwitcher className="self-start" />
             <Button
-              href={ctaItem.href}
+              href={ctaHref}
               size="lg"
               onClick={() => closeMenu(false)}
               className="mt-4 font-system"
             >
-              {ctaItem.label}
+              {t('nav.cta')}
             </Button>
           </nav>
         </div>

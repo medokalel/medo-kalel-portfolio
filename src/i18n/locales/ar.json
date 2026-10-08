@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "محمد خليل | مطوّر واجهات أمامية"
+  },
+  "brand": "محمد خليل",
+  "nav": {
+    "primary": "الرئيسية",
+    "mobile": "الجوال",
+    "siteMenu": "قائمة الموقع",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "about": "نبذة عني",
+    "projects": "المشاريع",
+    "services": "الخدمات",
+    "contact": "تواصل معي",
+    "cta": "لنتحدث"
+  },
+  "language": {
+    "switchTo": "تغيير اللغة إلى {{language}}"
+  },
+  "hero": {
+    "available": "متاح للعمل",
+    "titleLine1": "أبني تجارب",
+    "titleHighlight": "رقمية",
+    "titleLine3": "ذات قيمة",
+    "subtitle": "مطوّر واجهات أمامية متخصص في React وTypeScript وتصميم الواجهات الحديثة",
+    "viewWork": "شاهد أعمالي",
+    "contactMe": "تواصل معي",
+    "scroll": "مرّر للاستكشاف",
+    "opensInNewTab": "{{name}} (يفتح في تبويب جديد)"
+  },
+  "footer": {
+    "rights": "جميع الحقوق محفوظة.",
+    "privacy": "الخصوصية",
+    "terms": "الشروط",
+    "backToTop": "العودة للأعلى",
+    "builtWith": "صُنع بـ",
+    "love": "حب",
+    "using": "باستخدام React وTailwind CSS"
+  }
+}

@@ -12,11 +12,18 @@
  * un-layered, it would have overridden every Tailwind margin/padding utility.
  */
 
-/* Applies to every element (same behaviour as before); a later task switches it per language. */
+/* Applies to every element; the Arabic font is swapped through the --font-sans token above. */
 @layer base {
   * {
     font-family: var(--font-sans);
   }
+}
+
+/* Arabic: swap the font tokens once, every element follows (see --font-sans / --font-system).
+   Latin text inside Arabic pages (React, TypeScript...) is covered by the same family. */
+html[lang='ar'] {
+  --font-sans: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-system: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
 }
 
 /* Prevent horizontal scroll at the html and body level */

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ProjectCard from '@/components/projects/ProjectCard'
 import { getAllProjectsSorted, type ProjectCategory } from '@/content/projects'
 import { cn } from '@/lib/utils'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
 type ProjectFilter = 'all' | ProjectCategory
 
@@ -26,16 +27,19 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-page">
       <div className="border-b border-white/5 bg-linear-to-b/srgb from-brand-from/8 to-transparent px-4 pt-16 pb-12 max-md:pt-12 max-md:pb-8">
         <div className="site-container">
-          <Link
-            to="/"
-            className="group mb-8 inline-flex items-center gap-2 font-system text-[0.9rem] font-medium text-fg-muted no-underline transition-colors duration-300 hover:text-accent"
-          >
-            <i
-              className="fas fa-arrow-left transition-transform duration-300 group-hover:-translate-x-1 rtl:rotate-180 rtl:group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-            Back to Home
-          </Link>
+          <div className="mb-8 flex items-center justify-between gap-4">
+            <Link
+              to="/"
+              className="group inline-flex items-center gap-2 font-system text-[0.9rem] font-medium text-fg-muted no-underline transition-colors duration-300 hover:text-accent"
+            >
+              <i
+                className="fas fa-arrow-left transition-transform duration-300 group-hover:-translate-x-1 rtl:rotate-180 rtl:group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+              Back to Home
+            </Link>
+            <LanguageSwitcher />
+          </div>
           <h1 className="mb-4 font-system text-[3.5rem] leading-[1.1] font-extrabold text-fg max-lg:text-[2.5rem] max-md:text-[2rem]">
             All{' '}
             <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">

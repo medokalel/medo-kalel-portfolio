@@ -1,16 +1,14 @@
 export interface NavItem {
-  id: string
-  label: string
+  id: 'about' | 'projects' | 'services' | 'contact'
   href: `#${string}`
 }
 
-export const brandName = 'Mohamed Khalel'
-
+/** Labels live in the locale files: t(`nav.${item.id}`). */
 export const navItems: readonly NavItem[] = [
-  { id: 'about', label: 'About', href: '#about' },
-  { id: 'projects', label: 'Projects', href: '#projects' },
-  { id: 'services', label: 'Services', href: '#services' },
-  { id: 'contact', label: 'Contact', href: '#contact' },
+  { id: 'about', href: '#about' },
+  { id: 'projects', href: '#projects' },
+  { id: 'services', href: '#services' },
+  { id: 'contact', href: '#contact' },
 ]
 
-export const ctaItem: NavItem = { id: 'cta', label: "Let's Talk", href: '#contact' }
+export const ctaHref = '#contact'
