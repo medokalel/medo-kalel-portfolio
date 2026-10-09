@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next'
 import avatar from '@/assets/images/avatar.webp'
-import { skills, stats } from '@/content/profile'
+import Button from '@/components/ui/Button'
+import { cvFiles, skills, stats } from '@/content/profile'
+import { useLanguage } from '@/hooks/useLanguage'
 
 const badges = [
   { id: 'certified', icon: 'fas fa-award' },
@@ -9,6 +11,7 @@ const badges = [
 
 export default function About() {
   const { t } = useTranslation()
+  const { language } = useLanguage()
 
   return (
     <section id="about" className="relative bg-page px-4 py-24">
@@ -45,6 +48,11 @@ export default function About() {
                 </div>
               ))}
             </dl>
+            <Button href={cvFiles[language]} download variant="secondary" className="mt-8 font-system">
+              <i className="fas fa-download" aria-hidden="true" />
+              {t('about.downloadCv')}
+              <span className="sr-only"> ({t('about.cvFormat')})</span>
+            </Button>
           </div>
 
           <div className="flex justify-center">

@@ -1,3 +1,14 @@
+import type { Language } from '@/i18n/config'
+
+/**
+ * CV files live in public/cv/. To add an Arabic CV, drop the file there and point `ar` to it.
+ * (Same file for both languages until then.)
+ */
+export const cvFiles: Record<Language, string> = {
+  en: '/cv/Mohamed-Khalel-CV.pdf',
+  ar: '/cv/Mohamed-Khalel-CV.pdf',
+}
+
 export interface SocialLink {
   id: string
   label: string

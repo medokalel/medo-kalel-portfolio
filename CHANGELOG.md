@@ -19,6 +19,7 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 - Accessibility: `<main>` landmark, skip-to-content link, sr-only heading on the projects page, WCAG AA color contrast in both themes.
 - Test suite (Vitest + Testing Library): validation, locale parity, theme, switchers.
 - `README.md` and this changelog.
+- Download CV button in the About section (language-aware, files in public/cv/)
 
 ### Changed
 
