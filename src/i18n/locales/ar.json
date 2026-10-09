@@ -44,7 +44,8 @@
     "using": "باستخدام React وTailwind CSS"
   },
   "a11y": {
-    "scrollTop": "العودة إلى أعلى الصفحة"
+    "scrollTop": "العودة إلى أعلى الصفحة",
+    "skipToContent": "تخطَّ إلى المحتوى الرئيسي"
   },
   "about": {
     "label": "نبذة عني",
@@ -115,6 +116,7 @@
     "titleHighlight": "المشاريع",
     "subtitle": "استكشف مجموعة أعمالي الكاملة عبر مختلف التصنيفات",
     "filterLabel": "تصفية المشاريع",
+    "listHeading": "قائمة المشاريع",
     "filterAll": "كل المشاريع",
     "showing_zero": "لا توجد مشاريع",
     "showing_one": "عرض مشروع واحد",

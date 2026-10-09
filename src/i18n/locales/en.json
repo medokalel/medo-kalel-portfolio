@@ -44,7 +44,8 @@
     "using": "using React & Tailwind CSS"
   },
   "a11y": {
-    "scrollTop": "Scroll to top"
+    "scrollTop": "Scroll to top",
+    "skipToContent": "Skip to main content"
   },
   "about": {
     "label": "About Me",
@@ -115,6 +116,7 @@
     "titleHighlight": "Projects",
     "subtitle": "Explore my complete collection of work across different categories",
     "filterLabel": "Filter projects",
+    "listHeading": "Project list",
     "filterAll": "All Projects",
     "showing_one": "Showing <count>{{count}}</count> project",
     "showing_other": "Showing <count>{{count}}</count> projects"

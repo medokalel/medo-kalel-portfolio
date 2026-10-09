@@ -1,19 +1,21 @@
-import { useTranslation } from 'react-i18next'
-import { experiences } from '@/content/journey'
-import { cn } from '@/lib/utils'
+import { useTranslation } from "react-i18next";
+import { experiences } from "@/content/journey";
+import { cn } from "@/lib/utils";
 
 export default function Journey() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <section id="journey" className="bg-section-alt px-4 py-24">
       <div className="site-container">
         <div className="mb-16 text-center">
-          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">{t('journey.label')}</span>
+          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent-fg uppercase">
+            {t("journey.label")}
+          </span>
           <h2 className="m-0 text-5xl leading-[1.1] font-extrabold text-fg max-md:text-[2rem]">
-            {t('journey.titleStart')}{' '}
+            {t("journey.titleStart")}{" "}
             <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">
-              {t('journey.titleHighlight')}
+              {t("journey.titleHighlight")}
             </span>
           </h2>
         </div>
@@ -24,14 +26,14 @@ export default function Journey() {
             className="absolute inset-y-0 start-1/2 w-0.5 -translate-x-1/2 bg-linear-to-b from-brand-from to-brand-to rtl:translate-x-1/2 max-md:start-5"
           />
           {experiences.map((exp, index) => {
-            const onEnd = index % 2 === 0
+            const onEnd = index % 2 === 0;
             return (
               <li
                 key={exp.id}
                 className={cn(
-                  'relative mb-12 flex items-center last:mb-0',
-                  onEnd ? 'flex-row' : 'flex-row-reverse',
-                  'max-md:flex-row max-md:ps-[50px]',
+                  "relative mb-12 flex items-center last:mb-0",
+                  onEnd ? "flex-row" : "flex-row-reverse",
+                  "max-md:flex-row max-md:ps-[50px]",
                 )}
               >
                 <div className="absolute start-1/2 z-[2] -translate-x-1/2 rtl:translate-x-1/2 max-md:start-5">
@@ -39,22 +41,26 @@ export default function Journey() {
                 </div>
                 <div
                   className={cn(
-                    'absolute text-sm whitespace-nowrap text-fg-muted',
-                    onEnd ? 'start-[calc(50%+2rem)] text-start' : 'end-[calc(50%+2rem)] text-end',
-                    'max-md:start-[46%] max-md:end-auto max-md:-top-[6%] max-md:mb-2 max-md:text-start max-md:text-accent',
+                    "absolute text-sm whitespace-nowrap text-fg-muted",
+                    onEnd
+                      ? "start-[calc(50%+2rem)] text-start"
+                      : "end-[calc(50%+2rem)] text-end",
+                    "max-md:start-[46%] max-md:end-auto max-md:-top-[6%] max-md:mb-2 max-md:text-start max-md:text-accent-fg",
                   )}
                 >
                   {t(`journey.items.${exp.id}.period`)}
                 </div>
                 <div
                   className={cn(
-                    'w-[calc(50%-3rem)] rounded-2xl border border-line bg-card p-6 transition-[transform,border-color] duration-300 hover:-translate-y-[3px] hover:border-accent/30',
-                    onEnd ? 'ms-8' : 'me-8',
-                    'max-md:ms-2.5 max-md:me-0 max-md:w-full',
+                    "w-[calc(50%-3rem)] rounded-2xl border border-line bg-card p-6 transition-[transform,border-color] duration-300 hover:-translate-y-[3px] hover:border-accent/30",
+                    onEnd ? "ms-8" : "me-8",
+                    "max-md:ms-2.5 max-md:me-0 max-md:w-full",
                   )}
                 >
-                  <h3 className="mb-[0.3rem] text-[1.1rem] leading-[1.2] font-bold text-fg">{t(`journey.items.${exp.id}.title`)}</h3>
-                  <p className="mb-[0.8rem] text-[0.85rem] text-accent">
+                  <h3 className="mb-[0.3rem] text-[1.1rem] leading-[1.2] font-bold text-fg">
+                    {t(`journey.items.${exp.id}.title`)}
+                  </h3>
+                  <p className="mb-[0.8rem] text-[0.85rem] text-accent-fg">
                     {exp.companyLink ? (
                       <a
                         href={exp.companyLink}
@@ -68,12 +74,18 @@ export default function Journey() {
                       t(`journey.items.${exp.id}.company`)
                     )}
                   </p>
-                  <p className="mb-4 text-[0.9rem] leading-[1.6] text-fg-muted">{t(`journey.items.${exp.id}.description`)}</p>
+                  <p className="mb-4 text-[0.9rem] leading-[1.6] text-fg-muted">
+                    {t(`journey.items.${exp.id}.description`)}
+                  </p>
                   <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-                    {(t(`journey.items.${exp.id}.achievements`, { returnObjects: true }) as string[]).map((a) => (
+                    {(
+                      t(`journey.items.${exp.id}.achievements`, {
+                        returnObjects: true,
+                      }) as string[]
+                    ).map((a) => (
                       <li
                         key={a}
-                        className="rounded-full border border-brand-from/30 bg-brand-from/15 px-[0.7rem] py-[0.3rem] text-xs font-medium text-accent"
+                        className="rounded-full border border-brand-from/30 bg-brand-from/15 px-[0.7rem] py-[0.3rem] text-xs font-medium text-accent-fg"
                       >
                         {a}
                       </li>
@@ -81,10 +93,10 @@ export default function Journey() {
                   </ul>
                 </div>
               </li>
-            )
+            );
           })}
         </ol>
       </div>
     </section>
-  )
+  );
 }
