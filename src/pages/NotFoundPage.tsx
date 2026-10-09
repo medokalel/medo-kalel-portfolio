@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useLanguage } from '@/hooks/useLanguage'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 import { buttonVariants } from '@/components/ui/button-variants'
@@ -7,6 +8,7 @@ import { cn } from '@/lib/utils'
 
 export default function NotFoundPage() {
   const { t } = useTranslation()
+  const { localize } = useLanguage()
 
   return (
     <main id="main" className="flex min-h-screen flex-col bg-page px-4 py-6">
@@ -30,7 +32,7 @@ export default function NotFoundPage() {
         <p className="mb-8 max-w-[420px] font-system text-[1.05rem] leading-[1.6] text-fg-muted">
           {t('notFound.description')}
         </p>
-        <Link to="/" className={cn(buttonVariants({ size: 'md' }), 'gap-2 font-system')}>
+        <Link to={localize('/')} className={cn(buttonVariants({ size: 'md' }), 'gap-2 font-system')}>
           <i className="fas fa-arrow-left rtl:rotate-180" aria-hidden="true" />
           {t('notFound.backHome')}
         </Link>

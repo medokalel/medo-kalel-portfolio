@@ -1,7 +1,6 @@
 import i18n from 'i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
-import { defaultLanguage, isLanguage, type Language, languages, storageKey, supportedLanguages } from './config'
+import { defaultLanguage, isLanguage, type Language, languages, supportedLanguages } from './config'
 import ar from './locales/ar.json'
 import en from './locales/en.json'
 
@@ -31,14 +30,13 @@ function applyDocumentLanguage(lng: string) {
 }
 
 void i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources: { en: { translation: en }, ar: { translation: ar } },
     supportedLngs: supportedLanguages,
+    // The URL decides the language (see the root route loader in App.tsx); English is the default.
+    lng: defaultLanguage,
     fallbackLng: defaultLanguage,
-    // English by default: only a language the visitor explicitly chose (saved) is used.
-    detection: { order: ['localStorage'], lookupLocalStorage: storageKey, caches: ['localStorage'] },
     load: 'languageOnly',
     interpolation: { escapeValue: false }, // React already escapes
   })

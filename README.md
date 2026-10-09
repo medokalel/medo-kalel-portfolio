@@ -87,7 +87,8 @@ Rule of thumb: **text lives in `src/i18n/locales`, data (ids, dates, URLs, icons
 
 ## Internationalization
 
-- Supported languages are defined in `src/i18n/config.ts`. English is the default; only a language the visitor explicitly picked (saved in `localStorage` as `portfolio-language`) is used.
+- Supported languages are defined in `src/i18n/config.ts`. English lives at the root (`/`, `/projects`) and Arabic under `/ar` (`/ar`, `/ar/projects`); the URL decides the language. A visitor's explicit choice is saved in `localStorage` (`portfolio-language`) and sends them from `/` to `/ar` on later visits.
+- `hreflang`, canonical and Open Graph URLs are updated per page, and `sitemap.xml` / `robots.txt` are generated at build time from `VITE_SITE_URL`.
 - Changing the language updates `<html lang>`, `<html dir>`, the page title, and the description / Open Graph meta tags.
 - Keys are typed from `en.json`, so a missing or misspelled key fails `tsc`.
 
@@ -128,4 +129,3 @@ The site is deployed on Vercel from the `main` branch. Set the four environment 
 ## Known limitations
 
 - The Testimonials section is disabled until real testimonials exist.
-- The language is not part of the URL, so there is no `hreflang` and search engines see the English version. Adding `/ar` routes is the way to fix this.

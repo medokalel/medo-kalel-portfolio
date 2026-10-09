@@ -1,12 +1,20 @@
 import { useTranslation } from 'react-i18next'
-import { defaultLanguage, isLanguage, languages, type Direction, type Language } from '@/i18n/config'
+import {
+  defaultLanguage,
+  isLanguage,
+  languages,
+  localizePath,
+  type Direction,
+  type Language,
+} from '@/i18n/config'
 
 export interface UseLanguage {
   language: Language
   dir: Direction
-  setLanguage: (language: Language) => void
   /** The other supported language (there are two), for a simple toggle. */
   otherLanguage: Language
+  /** Prefixes an internal path with the current language: localize('/projects') → '/ar/projects'. */
+  localize: (path: string) => string
 }
 
 export function useLanguage(): UseLanguage {
@@ -15,7 +23,7 @@ export function useLanguage(): UseLanguage {
   return {
     language,
     dir: languages[language].dir,
-    setLanguage: (next) => void i18n.changeLanguage(next),
     otherLanguage: language === 'en' ? 'ar' : 'en',
+    localize: (path) => localizePath(path, language),
   }
 }

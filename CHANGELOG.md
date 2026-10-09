@@ -9,6 +9,7 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 
 ### Added
 
+- Language in the URL: Arabic at `/ar/*`, `hreflang` alternates, per-page canonical, generated `sitemap.xml` and `robots.txt`.
 - Social preview image (`public/og-image.png`), 404 page, `vercel.json` SPA rewrites, scroll restoration between routes.
 - Arabic translation with full RTL layout, IBM Plex Sans Arabic, and a language switcher (English remains the default).
 - Typed i18n (i18next + react-i18next); translation keys are checked at compile time.
@@ -23,6 +24,7 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 
 ### Changed
 
+- Language detection now follows the URL; the saved preference only redirects returning Arabic visitors.
 - Project images converted to WebP (about 3.6 MB → 106 KB total) and lazy-loaded.
 - `/projectspage` renamed to `/projects` (old URL redirects).
 

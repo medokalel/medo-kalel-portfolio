@@ -18,7 +18,7 @@
     />
     <meta name="author" content="Mohamed Khalel" />
     <meta name="theme-color" content="#0a0a0f" />
-      <!-- Applies the saved theme before first paint (no dark→light flash). Keep in sync with src/lib/theme.ts -->
+    <!-- Applies the saved theme before first paint (no dark→light flash). Keep in sync with src/lib/theme.ts -->
     <script>
       try {
         var theme = localStorage.getItem('portfolio-theme')
@@ -31,6 +31,9 @@
       } catch (e) {}
     </script>
     <link rel="canonical" href="%VITE_SITE_URL%/" />
+    <link rel="alternate" hreflang="en" href="%VITE_SITE_URL%/" />
+    <link rel="alternate" hreflang="ar" href="%VITE_SITE_URL%/ar" />
+    <link rel="alternate" hreflang="x-default" href="%VITE_SITE_URL%/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

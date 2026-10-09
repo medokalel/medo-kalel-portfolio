@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import ProjectCard from '@/components/projects/ProjectCard'
 import { buttonVariants } from '@/components/ui/button-variants'
 import { getLatestProjects } from '@/content/projects'
+import { useLanguage } from '@/hooks/useLanguage'
 import { cn } from '@/lib/utils'
 
 export default function Projects() {
   const { t } = useTranslation()
+  const { localize } = useLanguage()
   const latestProjects = getLatestProjects(4)
 
   return (
@@ -35,7 +37,7 @@ export default function Projects() {
 
         <div className="mt-12 flex justify-center">
           <Link
-            to="/projects"
+            to={localize('/projects')}
             className={cn(
               buttonVariants({ size: 'md' }),
               'group gap-3 px-8 py-[0.9rem] font-system',
