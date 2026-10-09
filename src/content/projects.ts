@@ -8,13 +8,13 @@ import ahmedSamirPortfolio from '@/assets/images/Screenshot 2026-07-09 024515.pn
 import alexPortfolio from '@/assets/images/Screenshot 2026-07-09 024600.png'
 import qrLandingPage from '@/assets/images/Screenshot 2026-05-14 210400.png'
 
-export type ProjectCategory = 'E-Commerce' | 'Landing Page' | 'Portfolio'
+export type ProjectCategory = 'ecommerce' | 'landing' | 'portfolio'
+export type ProjectId = 'ecommerce' | 'velora' | 'qr' | 'alex' | 'ahmed' | 'youssef'
 
+/** Title and description live in the locale files: t(`projects.items.${id}.title`). */
 export interface Project {
-  id: number
+  id: ProjectId
   category: ProjectCategory
-  title: string
-  description: string
   image: string
   tags: readonly string[]
   liveUrl: string
@@ -25,10 +25,8 @@ export interface Project {
 
 export const projectsData: readonly Project[] = [
   {
-    id: 1,
-    category: 'E-Commerce',
-    title: 'E-Commerce Platform',
-    description: 'A modern e-commerce platform with real-time inventory, payment integration, and advanced product filtering.',
+    id: 'ecommerce',
+    category: 'ecommerce',
     image: ecommerce,
     tags: ['React', 'JavaScript', 'Bootstrap', 'CSS3'],
     liveUrl: 'https://react-ecommerce-app-sigma.vercel.app/',
@@ -36,10 +34,8 @@ export const projectsData: readonly Project[] = [
     date: '2026-05-13'
   },
   {
-    id: 2,
-    category: 'Landing Page',
-    title: 'Landing Page',
-    description: 'A modern and responsive coffee website featuring smooth animations, interactive sections, and a visually engaging user experience.',
+    id: 'velora',
+    category: 'landing',
     image: landingPage,
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     liveUrl: 'https://medokalel.github.io/velora-coffee/',
@@ -47,10 +43,8 @@ export const projectsData: readonly Project[] = [
     date: '2026-05-08'
   },
   {
-    id: 3,
-    category: 'Landing Page',
-    title: 'Qr Landing Page',
-    description: 'A modern QR code landing page featuring responsive design, clean UI, smooth interactions, and a scrolling logo marquee showcasing trusted brands for a more engaging user experience.',
+    id: 'qr',
+    category: 'landing',
     image: qrLandingPage,
     tags: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap'],
     liveUrl: 'https://qr-landing-page-nine.vercel.app/',
@@ -58,10 +52,8 @@ export const projectsData: readonly Project[] = [
     date: '2026-05-14'
   },
   {
-    id: 4,
-    category: 'Portfolio',
-    title: 'Portfolio WebSite for Backend Developer',
-    description: 'A clean and responsive portfolio website built to present projects, skills, and personal information with a modern design, intuitive navigation, and a seamless user experience.',
+    id: 'alex',
+    category: 'portfolio',
     image: alexPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://alex-portfolio-weld.vercel.app/',
@@ -69,10 +61,8 @@ export const projectsData: readonly Project[] = [
     date: '2026-07-07'
   },
   {
-    id: 5,
-    category: 'Portfolio',
-    title: 'Portfolio WebSite for Backend Developer',
-    description: 'A responsive personal portfolio website designed to highlight professional experience, technical skills, and featured projects. Built with a modern, clean interface and smooth user experience to leave a lasting impression.',
+    id: 'ahmed',
+    category: 'portfolio',
     image: ahmedSamirPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://ahmed-samir-portfolio-pi.vercel.app/',
@@ -80,10 +70,8 @@ export const projectsData: readonly Project[] = [
     date: '2026-07-06'
   },
   {
-    id: 6,
-    category: 'Portfolio',
-    title: 'Portfolio WebSite for Web Design',
-    description: 'A modern and fully responsive personal portfolio website built to showcase professional skills, projects, and contact information. Designed with a clean UI, smooth navigation, and optimized performance to create a strong online presence.',
+    id: 'youssef',
+    category: 'portfolio',
     image: youssefKamelPortfolio,
     tags: ['React', 'JavaScript', 'CSS3', 'Bootstrap'],
     liveUrl: 'https://youssef-kamel-portfolio.vercel.app/',

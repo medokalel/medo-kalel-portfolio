@@ -1,16 +1,19 @@
+import { useTranslation } from 'react-i18next'
 import { experiences } from '@/content/journey'
 import { cn } from '@/lib/utils'
 
 export default function Journey() {
+  const { t } = useTranslation()
+
   return (
     <section id="journey" className="bg-section-alt px-4 py-24">
       <div className="site-container">
         <div className="mb-16 text-center">
-          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">My Journey</span>
+          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">{t('journey.label')}</span>
           <h2 className="m-0 text-5xl leading-[1.1] font-extrabold text-fg max-md:text-[2rem]">
-            The Path{' '}
+            {t('journey.titleStart')}{' '}
             <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">
-              So Far
+              {t('journey.titleHighlight')}
             </span>
           </h2>
         </div>
@@ -41,7 +44,7 @@ export default function Journey() {
                     'max-md:start-[46%] max-md:end-auto max-md:-top-[6%] max-md:mb-2 max-md:text-start max-md:text-accent',
                   )}
                 >
-                  {exp.period}
+                  {t(`journey.items.${exp.id}.period`)}
                 </div>
                 <div
                   className={cn(
@@ -50,7 +53,7 @@ export default function Journey() {
                     'max-md:ms-2.5 max-md:me-0 max-md:w-full',
                   )}
                 >
-                  <h3 className="mb-[0.3rem] text-[1.1rem] leading-[1.2] font-bold text-fg">{exp.title}</h3>
+                  <h3 className="mb-[0.3rem] text-[1.1rem] leading-[1.2] font-bold text-fg">{t(`journey.items.${exp.id}.title`)}</h3>
                   <p className="mb-[0.8rem] text-[0.85rem] text-accent">
                     {exp.companyLink ? (
                       <a
@@ -59,15 +62,15 @@ export default function Journey() {
                         rel="noopener noreferrer"
                         className="text-inherit no-underline"
                       >
-                        {exp.company}
+                        {t(`journey.items.${exp.id}.company`)}
                       </a>
                     ) : (
-                      exp.company
+                      t(`journey.items.${exp.id}.company`)
                     )}
                   </p>
-                  <p className="mb-4 text-[0.9rem] leading-[1.6] text-fg-muted">{exp.description}</p>
+                  <p className="mb-4 text-[0.9rem] leading-[1.6] text-fg-muted">{t(`journey.items.${exp.id}.description`)}</p>
                   <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
-                    {exp.achievements.map((a) => (
+                    {(t(`journey.items.${exp.id}.achievements`, { returnObjects: true }) as string[]).map((a) => (
                       <li
                         key={a}
                         className="rounded-full border border-brand-from/30 bg-brand-from/15 px-[0.7rem] py-[0.3rem] text-xs font-medium text-accent"

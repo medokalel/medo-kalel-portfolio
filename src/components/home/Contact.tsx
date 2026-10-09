@@ -1,5 +1,6 @@
 import { useRef, useState, type ChangeEvent, type FormEvent } from 'react'
 import emailjs from '@emailjs/browser'
+import { useTranslation } from 'react-i18next'
 import { contactInfo } from '@/content/contact'
 import { socialLinks } from '@/content/profile'
 import { validateContact, type ContactErrors, type ContactFields } from '@/lib/validation'
@@ -19,6 +20,7 @@ const infoCardClass =
 const socialIcon = (id: string, icon: string) => (id === 'facebook' ? 'fab fa-facebook-f' : icon)
 
 export default function Contact() {
+  const { t } = useTranslation()
   const formRef = useRef<HTMLFormElement>(null)
   const [values, setValues] = useState<ContactFields>(emptyValues)
   const [errors, setErrors] = useState<ContactErrors>({})
@@ -96,12 +98,15 @@ export default function Contact() {
     className: inputClass,
   })
 
-  const fieldError = (name: keyof ContactFields) =>
-    errors[name] && touched[name] ? (
+  const fieldError = (name: keyof ContactFields) => {
+    const key = errors[name]
+    if (!key || !touched[name]) return null
+    return (
       <p id={`contact-${name}-error`} className="mt-[0.4rem] mb-0 text-[0.8rem] text-red-400">
-        {errors[name]}
+        {t(`contact.errors.${key}`)}
       </p>
-    ) : null
+    )
+  }
 
   const labelClass = 'mb-2 block text-[0.85rem] font-medium text-fg-muted'
 
@@ -109,14 +114,14 @@ export default function Contact() {
     <section id="contact" className="bg-section-alt px-4 py-24">
       <div className="site-container">
         <div className="mb-12 text-center">
-          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">Get in Touch</span>
+          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">{t('contact.label')}</span>
           <h2 className="mb-4 text-5xl leading-[1.1] font-extrabold text-fg max-md:text-[2rem]">
-            Let&apos;s Work{' '}
+            {t('contact.titleStart')}{' '}
             <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">
-              Together
+              {t('contact.titleHighlight')}
             </span>
           </h2>
-          <p className="mb-4 text-base text-fg-muted">Have a project in mind? Let&apos;s talk and make it happen</p>
+          <p className="mb-4 text-base text-fg-muted">{t('contact.subtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
@@ -128,25 +133,25 @@ export default function Contact() {
               className="rounded-2xl border border-line bg-card p-8 max-md:p-6"
             >
               <div className="mb-[1.2rem]">
-                <label htmlFor="contact-from_name" className={labelClass}>Name</label>
-                <input type="text" autoComplete="name" placeholder="Your name" {...field('from_name')} />
+                <label htmlFor="contact-from_name" className={labelClass}>{t('contact.name')}</label>
+                <input type="text" autoComplete="name" placeholder={t('contact.namePlaceholder')} {...field('from_name')} />
                 {fieldError('from_name')}
               </div>
               <div className="mb-[1.2rem]">
-                <label htmlFor="contact-from_email" className={labelClass}>Email</label>
-                <input type="email" autoComplete="email" placeholder="your@email.com" {...field('from_email')} />
+                <label htmlFor="contact-from_email" className={labelClass}>{t('contact.email')}</label>
+                <input type="email" autoComplete="email" placeholder={t('contact.emailPlaceholder')} {...field('from_email')} />
                 {fieldError('from_email')}
               </div>
               <div className="mb-[1.2rem]">
-                <label htmlFor="contact-subject" className={labelClass}>Subject</label>
-                <input type="text" placeholder="What's this about?" {...field('subject')} />
+                <label htmlFor="contact-subject" className={labelClass}>{t('contact.subject')}</label>
+                <input type="text" placeholder={t('contact.subjectPlaceholder')} {...field('subject')} />
                 {fieldError('subject')}
               </div>
               <div className="mb-[1.2rem]">
-                <label htmlFor="contact-message" className={labelClass}>Message</label>
+                <label htmlFor="contact-message" className={labelClass}>{t('contact.message')}</label>
                 <textarea
                   rows={5}
-                  placeholder="Tell me about your project..."
+                  placeholder={t('contact.messagePlaceholder')}
                   {...field('message')}
                   className={cn(inputClass, 'min-h-[120px] resize-y')}
                 />
@@ -169,21 +174,21 @@ export default function Contact() {
                 {sending ? (
                   <span className="inline-flex items-center justify-center gap-2">
                     <i className="fas fa-circle-notch animate-spin motion-reduce:animate-none" aria-hidden="true" />
-                    Sending...
+                    {t('contact.sending')}
                   </span>
                 ) : sent ? (
                   <span className="inline-flex items-center justify-center gap-2">
                     <i className="fas fa-check animate-check-bounce motion-reduce:animate-none" aria-hidden="true" />
-                    Message Sent!
+                    {t('contact.sent')}
                   </span>
                 ) : (
-                  'Send Message'
+                  t('contact.send')
                 )}
               </button>
 
               <p role="status" aria-live="polite" className={cn('mt-3 mb-0 text-center text-[0.85rem]', status === 'error' ? 'text-red-400' : 'sr-only')}>
-                {status === 'error' && 'Something went wrong. Please try again or email me directly.'}
-                {sent && 'Your message was sent.'}
+                {status === 'error' && t('contact.failed')}
+                {sent && t('contact.sentStatus')}
               </p>
             </form>
           </div>
@@ -195,10 +200,10 @@ export default function Contact() {
                   <i className="fas fa-envelope text-base text-accent" aria-hidden="true" />
                 </span>
                 <span className="flex flex-col gap-[0.2rem]">
-                  <span className="m-0 text-base leading-[1.2] font-semibold text-fg">Email</span>
+                  <span className="m-0 text-base leading-[1.2] font-semibold text-fg">{t('contact.email')}</span>
                   <span className="m-0 text-[0.85rem] text-fg-muted">{contactInfo.email}</span>
                   <span className="text-xs text-fg-subtle" role="status">
-                    {copied ? 'Copied!' : 'Click to copy'}
+                    {copied ? t('contact.copied') : t('contact.copyHint')}
                   </span>
                 </span>
               </button>
@@ -208,19 +213,19 @@ export default function Contact() {
                   <i className="fas fa-map-marker-alt text-base text-accent" aria-hidden="true" />
                 </div>
                 <div className="flex flex-col gap-[0.2rem]">
-                  <p className="m-0 text-base leading-[1.2] font-semibold text-fg">Location</p>
-                  <p className="m-0 text-[0.85rem] text-fg-muted">{contactInfo.location}</p>
+                  <p className="m-0 text-base leading-[1.2] font-semibold text-fg">{t('contact.locationLabel')}</p>
+                  <p className="m-0 text-[0.85rem] text-fg-muted">{t('contact.location')}</p>
                 </div>
               </div>
 
               <div className={cn(infoCardClass, 'cursor-default')}>
                 <div className="inline-flex items-center gap-2 rounded-full border border-success/30 bg-success/15 px-[0.8rem] py-[0.4rem] text-[0.8rem] font-medium text-success">
                   <span className="size-2 animate-dot-pulse rounded-full bg-success motion-reduce:animate-none" aria-hidden="true" />
-                  {contactInfo.availability}
+                  {t('contact.availability')}
                 </div>
                 <div className="flex items-center gap-2 text-[0.85rem] text-fg-subtle">
                   <i className="far fa-clock text-accent" aria-hidden="true" />
-                  <span>{contactInfo.responseTime}</span>
+                  <span>{t('contact.responseTime')}</span>
                 </div>
               </div>
 

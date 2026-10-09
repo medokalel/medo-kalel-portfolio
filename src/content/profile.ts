@@ -36,13 +36,13 @@ export const skills: readonly string[] = [
 ]
 
 export interface Stat {
-  id: string
+  id: 'experience' | 'projects' | 'clients'
   value: string
-  label: string
 }
 
+/** Labels live in the locale files: t(`about.stats.${stat.id}`). */
 export const stats: readonly Stat[] = [
-  { id: 'experience', value: '1+', label: 'Years Experience' },
-  { id: 'projects', value: '10+', label: 'Projects Completed' },
-  { id: 'clients', value: '2', label: 'Clients' },
+  { id: 'experience', value: '1+' },
+  { id: 'projects', value: '10+' },
+  { id: 'clients', value: '2' },
 ]

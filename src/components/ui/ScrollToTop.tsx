@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 
 export default function ScrollToTop() {
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function ScrollToTop() {
     <button
       type="button"
       onClick={scrollToTop}
-      aria-label="Scroll to top"
+      aria-label={t('a11y.scrollTop')}
       inert={!isVisible}
       className={cn(
         'fixed end-6 bottom-6 z-[999] flex size-12 cursor-pointer items-center justify-center rounded-full border-0 bg-accent text-lg text-white',

@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import { useTranslation } from 'react-i18next'
 import { firstRow, secondRow, type Tech } from '@/content/techstack'
 import { cn } from '@/lib/utils'
 
@@ -45,25 +46,26 @@ function MarqueeRow({ items, reverse = false, label }: { items: readonly Tech[];
 }
 
 export default function TechStack() {
+  const { t } = useTranslation()
+
   return (
     <section id="techstack" className="max-w-[100vw] overflow-hidden bg-section-alt py-[6.5rem]">
       <div>
         <div className="mb-12 px-4 text-center">
-          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">Tech Stack</span>
+          <span className="mb-4 block text-xs font-semibold tracking-widest text-accent uppercase">{t('techstack.label')}</span>
           <h2 className="mb-4 text-5xl leading-[1.1] font-extrabold text-fg max-md:text-[2rem]">
-            Tools I Use to{' '}
+            {t('techstack.titleStart')}{' '}
             <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">
-              Build
+              {t('techstack.titleHighlight')}
             </span>
           </h2>
           <p className="mx-auto mb-0 max-w-[600px] text-base leading-[1.6] text-fg-muted">
-            A curated collection of modern technologies and frameworks I leverage to create exceptional digital
-            experiences
+            {t('techstack.subtitle')}
           </p>
         </div>
         <div className="flex w-full flex-col gap-6">
-          <MarqueeRow items={firstRow} label="Technologies, row 1" />
-          <MarqueeRow items={secondRow} reverse label="Technologies, row 2" />
+          <MarqueeRow items={firstRow} label={t('techstack.row1')} />
+          <MarqueeRow items={secondRow} reverse label={t('techstack.row2')} />
         </div>
       </div>
     </section>

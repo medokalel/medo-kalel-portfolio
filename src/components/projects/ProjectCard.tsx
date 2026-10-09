@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import { formatDate, type Project } from '@/content/projects'
+import { useLanguage } from '@/hooks/useLanguage'
+import { languages } from '@/i18n/config'
 import { cn } from '@/lib/utils'
 
 const overlayLink = cn(
@@ -15,7 +18,10 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, staggerIndex }: ProjectCardProps) {
+  const { t } = useTranslation()
+  const { language } = useLanguage()
   const staggered = staggerIndex !== undefined
+  const title = t(`projects.items.${project.id}.title`)
 
   return (
     <article
@@ -30,19 +36,19 @@ export default function ProjectCard({ project, staggerIndex }: ProjectCardProps)
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={project.image}
-          alt={`Screenshot of ${project.title}`}
+          alt={t('projects.screenshotAlt', { title })}
           className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/70 opacity-0 transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100">
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={overlayLink}>
             <i className="fas fa-external-link-alt" aria-hidden="true"></i>
-            Live Demo
-            <span className="sr-only"> of {project.title} (opens in a new tab)</span>
+            {t('projects.liveDemo')}
+            <span className="sr-only"> {t('projects.opensInNewTab', { title })}</span>
           </a>
           <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className={overlayLink}>
             <i className="fas fa-code" aria-hidden="true"></i>
-            Code
-            <span className="sr-only"> of {project.title} (opens in a new tab)</span>
+            {t('projects.code')}
+            <span className="sr-only"> {t('projects.opensInNewTab', { title })}</span>
           </a>
         </div>
       </div>
@@ -50,15 +56,15 @@ export default function ProjectCard({ project, staggerIndex }: ProjectCardProps)
       <div className="p-6">
         <div className="mb-[0.8rem] flex flex-wrap items-center justify-between gap-2 max-md:flex-col max-md:items-start max-md:gap-[0.4rem]">
           <span className="inline-block rounded-full border border-brand-from/30 bg-brand-from/15 px-[0.8rem] py-[0.3rem] font-system text-xs font-medium text-accent">
-            {project.category}
+            {t(`projects.categories.${project.category}`)}
           </span>
           <span className="inline-flex items-center gap-[0.4rem] font-system text-xs font-medium text-fg-subtle">
             <i className="far fa-calendar-alt text-[0.8rem] text-accent" aria-hidden="true"></i>
-            <time dateTime={project.date}>{formatDate(project.date)}</time>
+            <time dateTime={project.date}>{formatDate(project.date, languages[language].locale)}</time>
           </span>
         </div>
-        <h3 className="mb-2 font-system text-[1.2rem] leading-[1.2] font-bold text-fg">{project.title}</h3>
-        <p className="mb-4 font-system text-[0.9rem] leading-[1.6] text-fg-muted">{project.description}</p>
+        <h3 className="mb-2 font-system text-[1.2rem] leading-[1.2] font-bold text-fg">{title}</h3>
+        <p className="mb-4 font-system text-[0.9rem] leading-[1.6] text-fg-muted">{t(`projects.items.${project.id}.description`)}</p>
         <ul className="m-0 flex flex-wrap gap-2 p-0">
           {project.tags.map((tag) => (
             <li

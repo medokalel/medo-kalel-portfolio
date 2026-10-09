@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import ProjectCard from '@/components/projects/ProjectCard'
 import { buttonVariants } from '@/components/ui/button-variants'
@@ -5,6 +6,7 @@ import { getLatestProjects } from '@/content/projects'
 import { cn } from '@/lib/utils'
 
 export default function Projects() {
+  const { t } = useTranslation()
   const latestProjects = getLatestProjects(4)
 
   return (
@@ -12,17 +14,16 @@ export default function Projects() {
       <div className="site-container">
         <div className="mb-12 text-center">
           <span className="mb-4 block font-system text-xs font-semibold tracking-widest text-accent uppercase">
-            Featured Work
+            {t('projects.label')}
           </span>
           <h2 className="mb-4 font-system text-5xl leading-[1.1] font-extrabold text-fg max-md:text-[2rem]">
-            Projects That{' '}
+            {t('projects.titleStart')}{' '}
             <span className="bg-linear-135/srgb from-brand-from to-brand-to bg-clip-text text-transparent">
-              Define Me
+              {t('projects.titleHighlight')}
             </span>
           </h2>
           <p className="mx-auto mb-0 max-w-[600px] font-system text-base leading-[1.6] text-fg-muted">
-            A showcase of my recent work, demonstrating expertise in modern web development and
-            problem-solving
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -42,7 +43,7 @@ export default function Projects() {
               'max-md:px-[1.6rem] max-md:py-[0.8rem] max-md:text-[0.9rem]',
             )}
           >
-            <span>View All Projects</span>
+            <span>{t('projects.viewAll')}</span>
             <i
               className="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1 rtl:-scale-x-100 rtl:group-hover:-translate-x-1"
               aria-hidden="true"

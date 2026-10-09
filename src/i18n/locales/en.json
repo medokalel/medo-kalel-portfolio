@@ -37,5 +37,232 @@
     "builtWith": "Built with",
     "love": "love",
     "using": "using React & Tailwind CSS"
+  },
+  "a11y": {
+    "scrollTop": "Scroll to top"
+  },
+  "about": {
+    "label": "About Me",
+    "titleLine1": "Crafting Code,",
+    "titleHighlight": "Creating Impact",
+    "p1": "I'm Mohamed Khalel, a front-end developer from Egypt. I build with React, JavaScript, TypeScript, and CSS. Most of my focus goes into making interfaces that work well on any screen and don't get in the user's way.",
+    "p2": "I completed the DEPI React Front-End Developer track and built several projects along the way: an e-commerce app, a weather app, and DevFolio. Honestly, I learned more from debugging those than from any course.",
+    "p3": "Currently interning at CASCO, one of the world's leading testing and certification companies, working on real product UI and spending a lot of time in Figma.",
+    "portraitAlt": "Portrait of Mohamed Khalel",
+    "role": "Front-End Developer",
+    "location": "Marsa Matrouh, Egypt",
+    "skillsTitle": "Skills & Technologies",
+    "badges": {
+      "certified": "Certified",
+      "coffee": "Coffee Addict"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "clients": "Clients"
+    }
+  },
+  "projects": {
+    "label": "Featured Work",
+    "titleStart": "Projects That",
+    "titleHighlight": "Define Me",
+    "subtitle": "A showcase of my recent work, demonstrating expertise in modern web development and problem-solving",
+    "viewAll": "View All Projects",
+    "liveDemo": "Live Demo",
+    "code": "Code",
+    "opensInNewTab": "of {{title}} (opens in a new tab)",
+    "screenshotAlt": "Screenshot of {{title}}",
+    "categories": {
+      "ecommerce": "E-Commerce",
+      "landing": "Landing Page",
+      "portfolio": "Portfolio"
+    },
+    "items": {
+      "ecommerce": {
+        "title": "E-Commerce Platform",
+        "description": "A modern e-commerce platform with real-time inventory, payment integration, and advanced product filtering."
+      },
+      "velora": {
+        "title": "Landing Page",
+        "description": "A modern and responsive coffee website featuring smooth animations, interactive sections, and a visually engaging user experience."
+      },
+      "qr": {
+        "title": "Qr Landing Page",
+        "description": "A modern QR code landing page featuring responsive design, clean UI, smooth interactions, and a scrolling logo marquee showcasing trusted brands for a more engaging user experience."
+      },
+      "alex": {
+        "title": "Portfolio WebSite for Backend Developer",
+        "description": "A clean and responsive portfolio website built to present projects, skills, and personal information with a modern design, intuitive navigation, and a seamless user experience."
+      },
+      "ahmed": {
+        "title": "Portfolio WebSite for Backend Developer",
+        "description": "A responsive personal portfolio website designed to highlight professional experience, technical skills, and featured projects. Built with a modern, clean interface and smooth user experience to leave a lasting impression."
+      },
+      "youssef": {
+        "title": "Portfolio WebSite for Web Design",
+        "description": "A modern and fully responsive personal portfolio website built to showcase professional skills, projects, and contact information. Designed with a clean UI, smooth navigation, and optimized performance to create a strong online presence."
+      }
+    }
+  },
+  "projectsPage": {
+    "backHome": "Back to Home",
+    "titleStart": "All",
+    "titleHighlight": "Projects",
+    "subtitle": "Explore my complete collection of work across different categories",
+    "filterLabel": "Filter projects",
+    "filterAll": "All Projects",
+    "showing_one": "Showing <count>{{count}}</count> project",
+    "showing_other": "Showing <count>{{count}}</count> projects"
+  },
+  "services": {
+    "label": "Services",
+    "titleStart": "What I Can Do",
+    "titleHighlight": "For You",
+    "subtitle": "Comprehensive web development services tailored to bring your ideas to life",
+    "items": {
+      "frontend": {
+        "title": "Front-End Development",
+        "description": "Building responsive, performant web applications using modern frameworks and best practices.",
+        "features": [
+          "React & Next.js",
+          "TypeScript",
+          "State Management",
+          "API Integration"
+        ]
+      },
+      "responsive": {
+        "title": "Responsive Design",
+        "description": "Creating beautiful, accessible interfaces that work seamlessly across all devices and screen sizes.",
+        "features": [
+          "Mobile-First",
+          "Cross-Browser",
+          "Accessibility",
+          "Modern CSS"
+        ]
+      },
+      "landing": {
+        "title": "Landing Pages",
+        "description": "Crafting high-converting landing pages with engaging animations and optimized user flows.",
+        "features": [
+          "SEO Optimized",
+          "Fast Loading",
+          "Conversion Focused",
+          "Analytics Ready"
+        ]
+      },
+      "react": {
+        "title": "React Applications",
+        "description": "Developing scalable single-page applications with complex state management and routing.",
+        "features": [
+          "Redux/Zustand",
+          "React Router",
+          "Code Splitting",
+          "Testing"
+        ]
+      },
+      "ui": {
+        "title": "UI Implementation",
+        "description": "Translating designs from Figma, Sketch, or Adobe XD into pixel-perfect, interactive interfaces.",
+        "features": [
+          "Figma to Code",
+          "Design Systems",
+          "Component Libraries",
+          "Animations"
+        ]
+      },
+      "performance": {
+        "title": "Performance Optimization",
+        "description": "Enhancing application speed and efficiency through code optimization and best practices.",
+        "features": [
+          "Bundle Size",
+          "Lazy Loading",
+          "Caching",
+          "Lighthouse Scores"
+        ]
+      }
+    }
+  },
+  "journey": {
+    "label": "My Journey",
+    "titleStart": "The Path",
+    "titleHighlight": "So Far",
+    "items": {
+      "casco": {
+        "title": "Front-End Developer Intern",
+        "company": "CASCO",
+        "period": "2026 - present",
+        "description": "Working on real product UI at one of the world's leading testing and certification companies, focusing on building and improving web interfaces while spending a lot of time in Figma.",
+        "achievements": [
+          "Working on real product UI",
+          "Collaborating with design in Figma",
+          "Applying React & modern CSS"
+        ]
+      },
+      "depi": {
+        "title": "React Front-End Developer Trainee",
+        "company": "Digital Egypt Pioneers Initiative (DEPI)",
+        "period": "2025 - 2026",
+        "description": "Currently enrolled in an intensive React Front-End Development track focused on building modern, responsive web applications and applying industry best practices.",
+        "achievements": [
+          "Completed HTML5, CSS3 & Responsive Design modules",
+          "Building real-world React projects",
+          "Improving problem-solving & UI skills"
+        ]
+      },
+      "selftaught": {
+        "title": "Web Development Journey Started",
+        "company": "Self-Taught Learning",
+        "period": "2023 - 2025",
+        "description": "Started learning web development fundamentals including HTML, CSS, and JavaScript while building small projects to practice and improve skills.",
+        "achievements": [
+          "Built first responsive websites",
+          "Completed core web development fundamentals",
+          "Started GitHub portfolio"
+        ]
+      }
+    }
+  },
+  "techstack": {
+    "label": "Tech Stack",
+    "titleStart": "Tools I Use to",
+    "titleHighlight": "Build",
+    "subtitle": "A curated collection of modern technologies and frameworks I leverage to create exceptional digital experiences",
+    "row1": "Technologies, row 1",
+    "row2": "Technologies, row 2"
+  },
+  "contact": {
+    "label": "Get in Touch",
+    "titleStart": "Let's Work",
+    "titleHighlight": "Together",
+    "subtitle": "Have a project in mind? Let's talk and make it happen",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "What's this about?",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "sent": "Message Sent!",
+    "sentStatus": "Your message was sent.",
+    "failed": "Something went wrong. Please try again or email me directly.",
+    "copyHint": "Click to copy",
+    "copied": "Copied!",
+    "locationLabel": "Location",
+    "location": "Marsa Matrouh, Egypt",
+    "availability": "Available for Work",
+    "responseTime": "Usually responds in 24h",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "nameShort": "Name must be at least 2 characters.",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email address.",
+      "subjectRequired": "Please enter a subject.",
+      "subjectShort": "Subject must be at least 3 characters.",
+      "messageRequired": "Please write a message.",
+      "messageShort": "Message must be at least 10 characters."
+    }
   }
 }
