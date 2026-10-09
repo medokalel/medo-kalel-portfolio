@@ -1,7 +1,19 @@
 export const languages = {
-  en: { label: 'English', nativeLabel: 'English', dir: 'ltr', locale: 'en-US' },
+  en: {
+    label: 'English',
+    nativeLabel: 'English',
+    dir: 'ltr',
+    locale: 'en-US',
+    ogLocale: 'en_US',
+  },
   // Arabic text with Western digits (2026), the common choice on Arabic tech sites.
-  ar: { label: 'Arabic', nativeLabel: 'العربية', dir: 'rtl', locale: 'ar-EG-u-nu-latn' },
+  ar: {
+    label: 'Arabic',
+    nativeLabel: 'العربية',
+    dir: 'rtl',
+    locale: 'ar-EG-u-nu-latn',
+    ogLocale: 'ar_AR',
+  },
 } as const
 
 export type Language = keyof typeof languages
