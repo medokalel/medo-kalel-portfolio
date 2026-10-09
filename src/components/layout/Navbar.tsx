@@ -4,6 +4,7 @@ import { ctaHref, navItems } from '@/content/navigation'
 import { cn } from '@/lib/utils'
 import Button from '@/components/ui/Button'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const focusRing =
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
@@ -120,6 +121,7 @@ export default function Navbar() {
 
           <div className="flex shrink-0 items-center gap-4">
             <LanguageSwitcher className="max-md:hidden" />
+            <ThemeToggle className="max-md:hidden" />
             <Button href={ctaHref} size="sm" className="font-system whitespace-nowrap max-md:hidden">
               {t('nav.cta')}
             </Button>
@@ -153,7 +155,10 @@ export default function Navbar() {
           'fixed end-0 top-0 z-[1100] h-screen w-[300px] border-s border-line bg-drawer',
           'shadow-[-10px_0_40px_rgba(0,0,0,0.5)] rtl:shadow-[10px_0_40px_rgba(0,0,0,0.5)]',
           'transition-transform duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]',
-          isOpen ? 'translate-x-0' : 'translate-x-full rtl:-translate-x-full',
+          // Shadow only while open — a closed drawer's shadow leaks onto the page edge in light mode.
+          isOpen
+            ? 'translate-x-0 shadow-[-10px_0_40px_rgba(0,0,0,0.5)] rtl:shadow-[10px_0_40px_rgba(0,0,0,0.5)]'
+            : 'translate-x-full rtl:-translate-x-full',
         )}
       >
         <div className="flex flex-col gap-6 p-6">
@@ -186,7 +191,10 @@ export default function Navbar() {
                 {t(`nav.${item.id}`)}
               </a>
             ))}
-            <LanguageSwitcher className="self-start" />
+            <div className="flex items-center gap-3 self-start">
+              <LanguageSwitcher />
+              <ThemeToggle />
+            </div>
             <Button
               href={ctaHref}
               size="lg"

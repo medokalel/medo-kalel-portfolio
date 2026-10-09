@@ -40,7 +40,7 @@ function CodeSnippetCard({ code, className }: Pick<CodeSnippet, 'code' | 'classN
       dir="ltr"
       className={cn('absolute max-w-[160px] opacity-20 max-lg:hidden motion-reduce:animate-none', className)}
     >
-      <pre className="mb-4 rounded-lg border border-white/10 bg-white/5 p-3 text-xs whitespace-pre text-fg">
+      <pre className="mb-4 rounded-lg border border-ink/10 bg-ink/5 p-3 text-xs whitespace-pre text-fg">
         <code>{code}</code>
       </pre>
     </div>

@@ -6,7 +6,7 @@ import 'swiper/css/pagination'
 import { testimonials } from '@/content/testimonials'
 
 const navBtn =
-  'flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-white/5 text-fg-muted transition-all duration-300 hover:border-accent hover:bg-accent/20 hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
+  'flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full border border-ink/10 bg-ink/5 text-fg-muted transition-all duration-300 hover:border-accent hover:bg-accent/20 hover:text-fg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent'
 
 export default function Testimonials() {
   return (
@@ -47,7 +47,7 @@ export default function Testimonials() {
             >
               <figure className="m-0 flex h-full flex-col rounded-3xl border border-line bg-card p-10 transition-[border-color,box-shadow] duration-300 group-[.swiper-slide-active]:border-accent/30 group-[.swiper-slide-active]:shadow-[0_20px_60px_rgba(99,102,241,0.15)] max-md:p-6">
                 <i className="fas fa-quote-left mb-6 text-[2.5rem] text-accent/30" aria-hidden="true" />
-                <blockquote className="m-0 mb-8 flex-1 text-base leading-[1.8] text-fg-muted group-[.swiper-slide-active]:text-[1.1rem] group-[.swiper-slide-active]:text-[#d1d5db]">
+                <blockquote className="m-0 mb-8 flex-1 text-base leading-[1.8] text-fg-muted group-[.swiper-slide-active]:text-[1.1rem] group-[.swiper-slide-active]:text-fg">
                   {t.quote}
                 </blockquote>
                 <figcaption className="flex items-center gap-4">

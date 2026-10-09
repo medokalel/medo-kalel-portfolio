@@ -5,6 +5,7 @@ import ProjectCard from '@/components/projects/ProjectCard'
 import { getAllProjectsSorted, type ProjectCategory } from '@/content/projects'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import { cn } from '@/lib/utils'
+import ThemeToggle from '@/components/ui/ThemeToggle'
 
 type ProjectFilter = 'all' | ProjectCategory
 
@@ -27,7 +28,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen bg-page">
-      <div className="border-b border-white/5 bg-linear-to-b/srgb from-brand-from/8 to-transparent px-4 pt-16 pb-12 max-md:pt-12 max-md:pb-8">
+      <div className="border-b border-ink/5 bg-linear-to-b/srgb from-brand-from/8 to-transparent px-4 pt-16 pb-12 max-md:pt-12 max-md:pb-8">
         <div className="site-container">
           <div className="mb-8 flex items-center justify-between gap-4">
           <Link
@@ -40,7 +41,10 @@ export default function ProjectsPage() {
             />
             {t('projectsPage.backHome')}
           </Link>
-          <LanguageSwitcher />
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
           </div>
           <h1 className="mb-4 font-system text-[3.5rem] leading-[1.1] font-extrabold text-fg max-lg:text-[2.5rem] max-md:text-[2rem]">
             {t('projectsPage.titleStart')}{' '}
@@ -69,7 +73,7 @@ export default function ProjectsPage() {
                     'inline-flex cursor-pointer items-center gap-2 rounded-full border px-[1.4rem] py-[0.6rem] font-system text-[0.85rem] max-md:px-4 max-md:py-2 max-md:text-[0.8rem] font-medium transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
                     active
                       ? 'border-accent bg-linear-135/srgb from-brand-from/25 to-brand-to/25 text-fg shadow-[0_0_25px_rgba(139,92,246,0.15),0_4px_15px_rgba(0,0,0,0.3)]'
-                      : 'border-white/10 bg-white/3 text-fg-muted hover:border-accent/30 hover:bg-accent/10 hover:text-fg',
+                      : 'border-ink/10 bg-ink/3 text-fg-muted hover:border-accent/30 hover:bg-accent/10 hover:text-fg',
                   )}
                 >
                   <i className={cn('fas', filter.icon)} aria-hidden="true" />

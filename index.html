@@ -18,6 +18,18 @@
     />
     <meta name="author" content="Mohamed Khalel" />
     <meta name="theme-color" content="#0a0a0f" />
+      <!-- Applies the saved theme before first paint (no dark→light flash). Keep in sync with src/lib/theme.ts -->
+    <script>
+      try {
+        var theme = localStorage.getItem('portfolio-theme')
+        if (theme === 'light' || theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', theme)
+          if (theme === 'light') {
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f8fafc')
+          }
+        }
+      } catch (e) {}
+    </script>
     <link rel="canonical" href="%VITE_SITE_URL%/" />
 
     <!-- Open Graph -->

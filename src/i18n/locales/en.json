@@ -16,6 +16,10 @@
     "contact": "Contact",
     "cta": "Let's Talk"
   },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
   "language": {
     "switchTo": "Switch language to {{language}}"
   },
@@ -51,7 +55,7 @@
     "p3": "Currently interning at CASCO, one of the world's leading testing and certification companies, working on real product UI and spending a lot of time in Figma.",
     "portraitAlt": "Portrait of Mohamed Khalel",
     "role": "Front-End Developer",
-    "location": "Marsa Matrouh, Egypt",
+    "location": "Tanta, Egypt",
     "skillsTitle": "Skills & Technologies",
     "badges": {
       "certified": "Certified",
@@ -252,7 +256,7 @@
     "copyHint": "Click to copy",
     "copied": "Copied!",
     "locationLabel": "Location",
-    "location": "Marsa Matrouh, Egypt",
+    "location": "Tanta, Egypt",
     "availability": "Available for Work",
     "responseTime": "Usually responds in 24h",
     "errors": {

@@ -14,7 +14,7 @@ export const techs: readonly Tech[] = [
   { name: 'REST API', color: '#6366f1' },
   { name: 'Figma', color: '#f24e1e' },
   { name: 'Git', color: '#f05032' },
-  { name: 'GitHub', color: '#ffffff' },
+  { name: 'GitHub', color: 'var(--ink)' },
 ]
 
 /** First marquee row: the first 8 techs. */

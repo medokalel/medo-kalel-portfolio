@@ -32,6 +32,11 @@
   --code-opacity: 0.15;
   --nav-bg: transparent;
   --nav-scrolled: rgba(10, 10, 15, 0.95);
+  /* Foreground ink for hairlines/tints: use ink/10 etc. (white on dark, slate on light). */
+  --ink: #ffffff;
+  --section-alt: #111118;
+  --drawer-bg: #1a1a2e;
+  color-scheme: dark;
 }
 
 [data-theme="light"] {
@@ -55,6 +60,10 @@
   --code-opacity: 0.08;
   --nav-bg: transparent;
   --nav-scrolled: rgba(248, 250, 252, 0.95);
+    --ink: #0f172a;
+  --section-alt: #f1f5f9;
+  --drawer-bg: #ffffff;
+  color-scheme: light;
 }
 
 /* ── 2) Tailwind tokens ── */
@@ -77,6 +86,9 @@
   --color-success: var(--success-color);
   --color-overlay: var(--overlay-bg);
   --color-nav-scrolled: var(--nav-scrolled);
+  --color-ink: var(--ink);
+  --color-section-alt: var(--section-alt);
+  --color-drawer: var(--drawer-bg);
 }
 
 /* Static tokens */
@@ -88,9 +100,7 @@
   --font-system: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   /* Fixed colors (same in both themes) */
-  --color-drawer: #1a1a2e;
   --color-brand-pink: #ec4899;
-  --color-section-alt: #111118;
 
   /* Animations */
   --animate-fade-in: fade-in 0.3s ease;
