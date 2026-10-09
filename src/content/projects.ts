@@ -1,12 +1,12 @@
 // Shared data for all projects.
 // Add a new project here and it appears on the home page and the projects page automatically.
 
-import ecommerce from '@/assets/images/ProductService Landing Page Website in Black Blue Techflux Style.png'
-import landingPage from '@/assets/images/ProductService Landing Page Website in Black Blue Techflu Style.png'
-import youssefKamelPortfolio from '@/assets/images/Screenshot 2026-07-09 024443.png'
-import ahmedSamirPortfolio from '@/assets/images/Screenshot 2026-07-09 024515.png'
-import alexPortfolio from '@/assets/images/Screenshot 2026-07-09 024600.png'
-import qrLandingPage from '@/assets/images/Screenshot 2026-05-14 210400.png'
+import ecommerce from '@/assets/images/ecommerce.webp'
+import landingPage from '@/assets/images/velora.webp'
+import youssefKamelPortfolio from '@/assets/images/youssef-portfolio.webp'
+import ahmedSamirPortfolio from '@/assets/images/ahmed-portfolio.webp'
+import alexPortfolio from '@/assets/images/alex-portfolio.webp'
+import qrLandingPage from '@/assets/images/qr-landing.webp'
 
 export type ProjectCategory = 'ecommerce' | 'landing' | 'portfolio'
 export type ProjectId = 'ecommerce' | 'velora' | 'qr' | 'alex' | 'ahmed' | 'youssef'

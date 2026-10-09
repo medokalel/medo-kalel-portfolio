@@ -9,6 +9,7 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 
 ### Added
 
+- Social preview image (`public/og-image.png`), 404 page, `vercel.json` SPA rewrites, scroll restoration between routes.
 - Arabic translation with full RTL layout, IBM Plex Sans Arabic, and a language switcher (English remains the default).
 - Typed i18n (i18next + react-i18next); translation keys are checked at compile time.
 - Light and dark themes with a toggle, persistence, and no flash on load.
@@ -20,6 +21,9 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 - `README.md` and this changelog.
 
 ### Changed
+
+- Project images converted to WebP (about 3.6 MB → 106 KB total) and lazy-loaded.
+- `/projectspage` renamed to `/projects` (old URL redirects).
 
 #### Bootstrap → Tailwind CSS v4
 
@@ -44,6 +48,7 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 
 ### Removed
 
+- Privacy and Terms footer links.
 - Bootstrap, React-Bootstrap, `legacy-bootstrap.css`, `App.css`, all `*.module.css` files, the `Template/` folder, and `generate-react-cli.json`.
 - EmailJS keys hard-coded in `Contact.jsx` (moved to `.env`).
 

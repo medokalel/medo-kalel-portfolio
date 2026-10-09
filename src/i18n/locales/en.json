@@ -36,12 +36,15 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "privacy": "Privacy",
-    "terms": "Terms",
     "backToTop": "Back to Top",
     "builtWith": "Built with",
     "love": "love",
     "using": "using React & Tailwind CSS"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home"
   },
   "a11y": {
     "scrollTop": "Scroll to top",

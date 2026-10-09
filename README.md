@@ -7,7 +7,7 @@ Personal portfolio of Mohamed Khalel, a front-end developer. Bilingual (English 
 ## Features
 
 - Home page: hero, about, tech stack, featured projects, journey, services, contact form
-- All-projects page with category filter (`/projectspage`)
+- All-projects page with category filter (`/projects`)
 - English (default) and Arabic with RTL layout, persisted in `localStorage`
 - Light and dark theme, persisted, applied before first paint (no flash)
 - Contact form with validation and EmailJS delivery
@@ -123,10 +123,9 @@ Covers form validation, locale file consistency (English vs Arabic), theme persi
 
 ## Deployment
 
-The site is deployed on Vercel from the `main` branch. Set the four environment variables above in the Vercel project, then push to `main` or redeploy. `/projectspage` is a client-side route, so make sure the host rewrites unknown paths to `index.html` (Vercel does this for Vite projects by default).
+The site is deployed on Vercel from the `main` branch. Set the four environment variables above in the Vercel project, then push to `main` or redeploy. `vercel.json` rewrites every path to `index.html` so client-side routes such as `/projects` work on refresh and direct links.
 
 ## Known limitations
 
 - The Testimonials section is disabled until real testimonials exist.
 - The language is not part of the URL, so there is no `hreflang` and search engines see the English version. Adding `/ar` routes is the way to fix this.
-- `public/og-image.png` (1200×630) is not included yet, so link previews have no image.
