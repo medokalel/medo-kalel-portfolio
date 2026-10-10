@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { experiences } from "@/content/journey";
 import { cn } from "@/lib/utils";
+import { reveal } from "@/lib/reveal";
 
 export default function Journey() {
   const { t } = useTranslation();
@@ -8,7 +9,7 @@ export default function Journey() {
   return (
     <section id="journey" className="bg-section-alt px-4 py-24">
       <div className="site-container">
-        <div className="mb-16 text-center">
+        <div className="mb-16 text-center" {...reveal()}>
           <span className="mb-4 block text-xs font-semibold tracking-widest text-accent-fg uppercase">
             {t("journey.label")}
           </span>
@@ -30,6 +31,7 @@ export default function Journey() {
             return (
               <li
                 key={exp.id}
+                {...reveal()}
                 className={cn(
                   "relative mb-12 flex items-center last:mb-0",
                   onEnd ? "flex-row" : "flex-row-reverse",

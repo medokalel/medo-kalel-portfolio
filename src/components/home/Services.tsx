@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { services } from "@/content/services";
+import { reveal } from "@/lib/reveal";
 
 export default function Services() {
   const { t } = useTranslation();
@@ -7,7 +8,7 @@ export default function Services() {
   return (
     <section id="services" className="bg-page px-4 py-24">
       <div className="site-container">
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center" {...reveal()}>
           <span className="mb-4 block text-xs font-semibold tracking-widest text-accent-fg uppercase">
             {t("services.label")}
           </span>
@@ -23,9 +24,10 @@ export default function Services() {
         </div>
 
         <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <li
               key={service.id}
+              {...reveal((index % 3) * 100)}
               className="h-full rounded-2xl border border-line bg-card p-8 transition-[transform,border-color] duration-300 hover:-translate-y-[5px] hover:border-accent/30"
             >
               <div className="mb-[1.2rem] flex size-12 items-center justify-center rounded-[0.8rem] bg-linear-135/srgb from-brand-from to-brand-to">

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Button from "@/components/ui/Button";
-import { socialLinks } from "@/content/profile";
+import { cvFiles, socialLinks } from "@/content/profile";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
 
 interface CodeSnippet {
@@ -55,6 +56,7 @@ function CodeSnippetCard({
 
 export default function Hero() {
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const [topLeft, topRight, bottomLeft, bottomRight] = codeSnippets;
 
   return (
@@ -84,7 +86,7 @@ export default function Hero() {
               {t("hero.subtitle")}
             </p>
 
-            <div className="mb-8 flex flex-wrap justify-center gap-4 max-md:w-full max-md:max-w-[280px] max-md:flex-col max-md:items-center">
+            <div className="mb-5 flex flex-wrap justify-center gap-4 max-md:w-full max-md:max-w-[280px] max-md:flex-col max-md:items-center">
               <Button href="#projects" className="max-md:w-full">
                 {t("hero.viewWork")}
                 <i
@@ -100,6 +102,16 @@ export default function Hero() {
                 {t("hero.contactMe")}
               </Button>
             </div>
+
+            <a
+              href={cvFiles[language]}
+              download
+              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-accent-fg no-underline hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            >
+              <i className="fas fa-download" aria-hidden="true"></i>
+              {t("about.downloadCv")}
+              <span className="sr-only"> ({t("about.cvFormat")})</span>
+            </a>
 
             <div className="flex gap-6">
               {socialLinks.map((social) => (

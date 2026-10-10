@@ -3,6 +3,7 @@ import avatar from '@/assets/images/avatar.webp'
 import Button from '@/components/ui/Button'
 import { cvFiles, skills, stats } from '@/content/profile'
 import { useLanguage } from '@/hooks/useLanguage'
+import { reveal } from '@/lib/reveal'
 
 const badges = [
   { id: 'certified', icon: 'fas fa-award' },
@@ -17,7 +18,7 @@ export default function About() {
     <section id="about" className="relative bg-page px-4 py-24">
       <div className="site-container">
         <div className="grid grid-cols-1 items-start gap-x-6 lg:grid-cols-2">
-          <div className="max-lg:mb-12">
+          <div className="max-lg:mb-12" {...reveal()}>
             <span className="mb-4 block text-xs font-semibold tracking-widest text-accent-fg uppercase">
               {t('about.label')}
             </span>
@@ -55,7 +56,7 @@ export default function About() {
             </Button>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center" {...reveal(120)}>
             <div className="flex w-full max-w-[480px] flex-col items-center rounded-3xl border border-line bg-card p-10 text-center max-lg:max-w-full max-sm:p-6">
               <div className="mb-6 flex size-[130px] items-center justify-center rounded-full bg-linear-135/srgb from-brand-from to-brand-to">
                 <img

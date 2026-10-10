@@ -221,3 +221,26 @@
   @media (min-width: 1200px) { max-width: 1140px; }
   @media (min-width: 1400px) { max-width: 1320px; }
 }
+
+/*
+ * Scroll-reveal (see src/lib/reveal.ts). Un-layered on purpose, and only when motion is allowed:
+ * with `prefers-reduced-motion: reduce` nothing is hidden and nothing moves.
+ * Uses the `translate` property (not `transform`) so hover transforms on the same element keep working.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal]:not([data-revealed]) {
+    opacity: 0;
+  }
+
+  [data-reveal][data-revealed] {
+    animation: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      translate: 0 1.5rem;
+    }
+  }
+}

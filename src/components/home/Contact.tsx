@@ -4,6 +4,7 @@ import { contactInfo } from '@/content/contact'
 import { socialLinks } from '@/content/profile'
 import { validateContact, type ContactErrors, type ContactFields } from '@/lib/validation'
 import { cn } from '@/lib/utils'
+import { reveal } from '@/lib/reveal'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -21,6 +22,7 @@ const socialIcon = (id: string, icon: string) => (id === 'facebook' ? 'fab fa-fa
 export default function Contact() {
   const { t } = useTranslation()
   const formRef = useRef<HTMLFormElement>(null)
+  const honeypotRef = useRef<HTMLInputElement>(null)
   const [values, setValues] = useState<ContactFields>(emptyValues)
   const [errors, setErrors] = useState<ContactErrors>({})
   const [touched, setTouched] = useState<Partial<Record<keyof ContactFields, boolean>>>({})
@@ -55,6 +57,16 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    // Honeypot: real visitors never see or fill this field, simple bots fill every input they find.
+    // Pretend it worked (so the bot learns nothing) but never call EmailJS.
+    if (honeypotRef.current?.value) {
+      setStatus('sent')
+      setValues(emptyValues)
+      setTimeout(() => setStatus('idle'), 3000)
+      return
+    }
+
     const found = validateContact(values)
     setErrors(found)
     setTouched({ from_name: true, from_email: true, subject: true, message: true })
@@ -114,7 +126,7 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-section-alt px-4 py-24">
       <div className="site-container">
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center" {...reveal()}>
           <span className="mb-4 block text-xs font-semibold tracking-widest text-accent-fg uppercase">{t('contact.label')}</span>
           <h2 className="mb-4 text-5xl leading-[1.1] font-extrabold text-fg max-md:text-[2rem]">
             {t('contact.titleStart')}{' '}
@@ -126,13 +138,17 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7" {...reveal()}>
             <form
               ref={formRef}
               onSubmit={handleSubmit}
               noValidate
-              className="rounded-2xl border border-line bg-card p-8 max-md:p-6"
+              className="relative rounded-2xl border border-line bg-card p-8 max-md:p-6"
             >
+              {/* Spam trap: hidden from people and screen readers, not focusable. Keep the name unusual so autofill ignores it. */}
+              <div aria-hidden="true" inert className="sr-only">
+                <input ref={honeypotRef} type="text" name="contact_website" tabIndex={-1} autoComplete="off" defaultValue="" />
+              </div>
               <div className="mb-[1.2rem]">
                 <label htmlFor="contact-from_name" className={labelClass}>{t('contact.name')}</label>
                 <input type="text" autoComplete="name" placeholder={t('contact.namePlaceholder')} {...field('from_name')} />
@@ -194,7 +210,7 @@ export default function Contact() {
             </form>
           </div>
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5" {...reveal(120)}>
             <div className="flex flex-col gap-4 max-lg:mt-4">
               <button type="button" onClick={copyEmail} className={cn(infoCardClass, 'w-full text-start')}>
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-[0.6rem] bg-brand-from/15">

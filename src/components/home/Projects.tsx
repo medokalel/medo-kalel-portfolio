@@ -5,6 +5,7 @@ import { buttonVariants } from '@/components/ui/button-variants'
 import { getLatestProjects } from '@/content/projects'
 import { useLanguage } from '@/hooks/useLanguage'
 import { cn } from '@/lib/utils'
+import { reveal } from '@/lib/reveal'
 
 export default function Projects() {
   const { t } = useTranslation()
@@ -14,7 +15,7 @@ export default function Projects() {
   return (
     <section id="projects" className="bg-page px-4 py-24">
       <div className="site-container">
-        <div className="mb-12 text-center">
+        <div className="mb-12 text-center" {...reveal()}>
           <span className="mb-4 block font-system text-xs font-semibold tracking-widest text-accent-fg uppercase">
             {t('projects.label')}
           </span>
@@ -30,8 +31,8 @@ export default function Projects() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          {latestProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {latestProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} staggerIndex={index} />
           ))}
         </div>
 

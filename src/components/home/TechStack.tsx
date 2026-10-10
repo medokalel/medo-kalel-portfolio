@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import { firstRow, secondRow, type Tech } from "@/content/techstack";
 import { cn } from "@/lib/utils";
+import { reveal } from "@/lib/reveal";
 
 function TechCard({ tech, hidden = false }: { tech: Tech; hidden?: boolean }) {
   return (
@@ -67,7 +68,7 @@ export default function TechStack() {
       className="max-w-[100vw] overflow-hidden bg-section-alt py-[6.5rem]"
     >
       <div>
-        <div className="mb-12 px-4 text-center">
+        <div className="mb-12 px-4 text-center" {...reveal()}>
           <span className="mb-4 block text-xs font-semibold tracking-widest text-accent-fg uppercase">
             {t("techstack.label")}
           </span>

@@ -3,6 +3,7 @@ import { formatDate, type Project } from '@/content/projects'
 import { useLanguage } from '@/hooks/useLanguage'
 import { languages } from '@/i18n/config'
 import { cn } from '@/lib/utils'
+import { reveal } from '@/lib/reveal'
 
 const overlayLink = cn(
   'inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-[1.2rem] py-[0.6rem]',
@@ -13,25 +14,22 @@ const overlayLink = cn(
 
 interface ProjectCardProps {
   project: Project
-  /** When set, the card fades in after `index × 0.1s` (staggered list). */
+  /** Position in the list: cards in the same row reveal one after another (0.1s apart). */
   staggerIndex?: number
 }
 
 export default function ProjectCard({ project, staggerIndex }: ProjectCardProps) {
   const { t } = useTranslation()
   const { language } = useLanguage()
-  const staggered = staggerIndex !== undefined
   const title = t(`projects.items.${project.id}.title`)
 
   return (
     <article
       className={cn(
-        'group h-full animate-fade-in-up overflow-hidden rounded-2xl border border-line bg-card',
+        'group h-full overflow-hidden rounded-2xl border border-line bg-card',
         'transition-[transform,border-color] duration-300 hover:-translate-y-[5px] hover:border-accent/30',
-        'motion-reduce:animate-none',
-        staggered && 'opacity-0 motion-reduce:opacity-100',
       )}
-      style={staggered ? { animationDelay: `${staggerIndex * 0.1}s` } : undefined}
+      {...reveal(((staggerIndex ?? 0) % 3) * 100)}
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
