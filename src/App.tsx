@@ -13,8 +13,6 @@ import { defaultLanguage, getLanguageFromPath, localizePath, readStoredLanguage 
 import i18n from '@/i18n'
 import { updateSeoLinks } from '@/lib/seo'
 import HomePage from '@/pages/HomePage'
-import NotFoundPage from '@/pages/NotFoundPage'
-import ProjectsPage from '@/pages/ProjectsPage'
 
 /**
  * Runs before every page change: the URL decides the language (/ = English, /ar = Arabic).
@@ -33,6 +31,10 @@ async function rootLoader({ request }: LoaderFunctionArgs) {
   updateSeoLinks(url.pathname)
   return null
 }
+
+/** Secondary pages are loaded on demand, so the home page ships less JavaScript. */
+const projectsPage = { lazy: async () => ({ Component: (await import('@/pages/ProjectsPage')).default }) }
+const notFoundPage = { lazy: async () => ({ Component: (await import('@/pages/NotFoundPage')).default }) }
 
 /** Root route: new pages open at the top, Back restores the old position, #hash links still work. */
 function Root() {
@@ -55,7 +57,7 @@ function pagesFor(prefix: '' | '/ar'): RouteObject[] {
         { path: 'home', element: <HomePage /> },
       ],
     },
-    { path: `${prefix}/projects`, element: <ProjectsPage /> },
+    { path: `${prefix}/projects`, ...projectsPage },
     // Old URL (kept so existing links don't break)
     { path: `${prefix}/projectspage`, element: <Navigate to={`${prefix}/projects`} replace /> },
   ]
@@ -67,7 +69,7 @@ const router = createBrowserRouter([
     loader: rootLoader,
     shouldRevalidate: ({ currentUrl, nextUrl }) => currentUrl.pathname !== nextUrl.pathname,
     hydrateFallbackElement: <div className="min-h-screen bg-page" />,
-    children: [...pagesFor(''), ...pagesFor('/ar'), { path: '*', element: <NotFoundPage /> }],
+    children: [...pagesFor(''), ...pagesFor('/ar'), { path: '*', ...notFoundPage }],
   },
 ])
 

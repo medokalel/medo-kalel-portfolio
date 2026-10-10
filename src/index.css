@@ -1,18 +1,22 @@
 /*
- * Cascade order: Tailwind's layers, nothing else. Component styles are utilities in the markup.
+ * Cascade order. `legacy` (Bootstrap's reboot) sits ABOVE Tailwind's base but BELOW components/utilities, so any Tailwind utility
+ * (e.g. `no-underline`, `text-fg`, `mb-0`) always beats Bootstrap — even on <a> and <p>.
+ * Task 9 deletes the `legacy` layer.
  */
 @layer theme, base, components, utilities;
 
 @import "tailwindcss";
 @import "./styles/design-system.css";
 @import "./styles/swiper.css";
+
 /*
  * Tailwind's preflight already resets margin / padding / box-sizing, so the old
  * `* { margin: 0; padding: 0; box-sizing: border-box }` rule is gone — being
  * un-layered, it would have overridden every Tailwind margin/padding utility.
  */
 
-/* Applies to every element; the Arabic font is swapped through the --font-sans token above. */
+/* Applies to every element (same behaviour as before); Task 11 switches it per language.
+   In `base` so Bootstrap's reboot (code/pre = monospace) still wins until Task 9. */
 @layer base {
   * {
     font-family: var(--font-sans);
@@ -22,8 +26,8 @@
 /* Arabic: swap the font tokens once, every element follows (see --font-sans / --font-system).
    Latin text inside Arabic pages (React, TypeScript...) is covered by the same family. */
 html[lang='ar'] {
-  --font-sans: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
-  --font-system: 'IBM Plex Sans Arabic', 'Inter', sans-serif;
+  --font-sans: 'IBM Plex Sans Arabic', 'Inter Variable', sans-serif;
+  --font-system: 'IBM Plex Sans Arabic', 'Inter Variable', sans-serif;
 }
 
 /* Prevent horizontal scroll at the html and body level */
