@@ -37,7 +37,7 @@ function MarqueeRow({
   label: string;
 }) {
   return (
-    <div className="relative w-full">
+    <div dir="ltr" className="relative w-full">
       <ul
         aria-label={label}
         className={cn(
