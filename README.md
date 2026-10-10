@@ -4,6 +4,8 @@ Personal portfolio of Mohamed Khalil, a front-end developer. Bilingual (English 
 
 **Live site:** https://medo-kalel-portfolio.vercel.app
 
+© 2026 Mohamed Khalil. All rights reserved. See [LICENSE](LICENSE).
+
 ## Features
 
 - Home page: hero, about, tech stack, featured projects, journey, services, contact form
@@ -129,3 +131,7 @@ The site is deployed on Vercel from the `main` branch. Set the four environment 
 ## Known limitations
 
 - The Testimonials section is disabled until real testimonials exist.
+
+## License
+
+All rights reserved. The code, design and content are published for viewing only and may not be copied or reused without written permission. Third-party libraries keep their own licenses. See [LICENSE](LICENSE).
