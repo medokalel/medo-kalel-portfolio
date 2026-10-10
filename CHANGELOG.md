@@ -2,6 +2,7 @@
 
 All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+- Inter is now self-hosted (`@fontsource-variable/inter`) instead of loaded from Google Fonts; secondary pages and the EmailJS SDK are loaded on demand (main bundle 444 KB → 289 KB).
 
 ## [1.0.0] - 2026-10-09
 
