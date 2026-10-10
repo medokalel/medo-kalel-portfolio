@@ -23,5 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 .env
-
-/public/cv/Mohamed-Khalil-CV.pdf
