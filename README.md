@@ -1,6 +1,6 @@
-# Mohamed Khalel — Portfolio
+# Mohamed Khalil — Portfolio
 
-Personal portfolio of Mohamed Khalel, a front-end developer. Bilingual (English / Arabic with full RTL), light and dark themes, responsive, and accessible.
+Personal portfolio of Mohamed Khalil, a front-end developer. Bilingual (English / Arabic with full RTL), light and dark themes, responsive, and accessible.
 
 **Live site:** https://medo-kalel-portfolio.vercel.app
 

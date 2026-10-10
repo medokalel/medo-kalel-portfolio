@@ -5,8 +5,8 @@ import type { Language } from '@/i18n/config'
  * (Same file for both languages until then.)
  */
 export const cvFiles: Record<Language, string> = {
-  en: '/cv/Mohamed-Khalel-CV.pdf',
-  ar: '/cv/Mohamed-Khalel-CV.pdf',
+  en: '/cv/Mohamed-Khalil-CV.pdf',
+  ar: '/cv/Mohamed-Khalil-CV.pdf',
 }
 
 export interface SocialLink {
