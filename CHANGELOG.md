@@ -10,6 +10,7 @@ Major revamp: Bootstrap → Tailwind CSS v4, JavaScript → TypeScript, Arabic/R
 
 ### Added
 
+- Case study pages (/projects/:id, EN + AR) for all six projects, linked from every project card and included in the sitemap.
 - Language in the URL: Arabic at `/ar/*`, `hreflang` alternates, per-page canonical, generated `sitemap.xml` and `robots.txt`.
 - Social preview image (`public/og-image.png`), 404 page, `vercel.json` SPA rewrites, scroll restoration between routes.
 - Arabic translation with full RTL layout, IBM Plex Sans Arabic, and a language switcher (English remains the default).

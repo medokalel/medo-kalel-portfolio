@@ -3,13 +3,14 @@ import { loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url'
+import { projectIds } from './src/content/project-ids'
 
 /**
  * Emits robots.txt and sitemap.xml at build time from VITE_SITE_URL, so no domain is hard-coded.
  * Every page exists in both languages, linked with hreflang alternates.
  */
 function seoFiles(siteUrl: string): Plugin {
-  const pages = ['/', '/projects']
+  const pages = ['/', '/projects', ...projectIds.map((id) => `/projects/${id}`)]
   const localized = (page: string, prefix: string) => siteUrl + (page === '/' ? prefix || '/' : prefix + page)
 
   return {

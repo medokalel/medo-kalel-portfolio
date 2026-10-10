@@ -1,6 +1,7 @@
 // Shared data for all projects.
 // Add a new project here and it appears on the home page and the projects page automatically.
 
+import type { ProjectId } from './project-ids'
 import ecommerce from '@/assets/images/ecommerce.webp'
 import landingPage from '@/assets/images/velora.webp'
 import youssefKamelPortfolio from '@/assets/images/youssef-portfolio.webp'
@@ -9,7 +10,7 @@ import alexPortfolio from '@/assets/images/alex-portfolio.webp'
 import qrLandingPage from '@/assets/images/qr-landing.webp'
 
 export type ProjectCategory = 'ecommerce' | 'landing' | 'portfolio'
-export type ProjectId = 'ecommerce' | 'velora' | 'qr' | 'alex' | 'ahmed' | 'youssef'
+export type { ProjectId }
 
 /** Title and description live in the locale files: t(`projects.items.${id}.title`). */
 export interface Project {
@@ -95,3 +96,6 @@ export const formatDate = (isoDate: string, locale = 'en-US'): string => {
     day: 'numeric',
   })
 }
+
+export const getProjectById = (id: string | undefined): Project | undefined =>
+  projectsData.find((project) => project.id === id)

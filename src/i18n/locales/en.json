@@ -113,7 +113,8 @@
         "title": "Portfolio WebSite for Web Design",
         "description": "A modern and fully responsive personal portfolio website built to showcase professional skills, projects, and contact information. Designed with a clean UI, smooth navigation, and optimized performance to create a strong online presence."
       }
-    }
+    },
+    "viewCaseStudy": "Case study"
   },
   "projectsPage": {
     "backHome": "Back to Home",
@@ -275,6 +276,226 @@
       "subjectShort": "Subject must be at least 3 characters.",
       "messageRequired": "Please write a message.",
       "messageShort": "Message must be at least 10 characters."
+    }
+  },
+  "caseStudy": {
+    "back": "Back to Projects",
+    "label": "Case Study",
+    "metaTitle": "{{title}} — Case Study | Mohamed Khalil",
+    "sections": {
+      "idea": "The Idea",
+      "role": "My Role",
+      "challenges": "The Challenges",
+      "decisions": "Technical Decisions",
+      "outcome": "The Outcome",
+      "learned": "What I Learned"
+    },
+    "soloBadge": "Solo project",
+    "stack": "Built with",
+    "visitLive": "Visit live site",
+    "viewCode": "View source code",
+    "next": "Next project",
+    "allProjects": "All projects",
+    "items": {
+      "ecommerce": {
+        "idea": "I wanted a project that goes beyond static pages: accounts, a cart that survives navigation, and a real checkout flow. An online store forces you to solve what every serious front-end app faces — authentication, shared state, private pages, forms and a REST API. The data comes from a public practice API, so no real orders are placed.",
+        "role": "Solo project. I planned the screens, routes and state, wrote all of the React code, styled it and deployed it.",
+        "challenges": [
+          {
+            "title": "A cart count that is always right",
+            "body": "The cart badge in the navbar has to match the cart page, even after adding a product from another page. Instead of passing counts around, I put every cart action in one CartContext. Add, update, remove and load all read the item count from the API response and update the shared state, so the badge changes in exactly one place."
+          },
+          {
+            "title": "Keeping private pages private",
+            "body": "Cart, orders and checkout must not open for a signed-out visitor. I wrapped those routes in a ProtectedRoutes component that checks the saved token and redirects to the sign-in page, so the rule is written once instead of in every page."
+          },
+          {
+            "title": "Brands from a paginated API",
+            "body": "The brands endpoint returns data page by page. I loop until the last page, then run the search box and the A–Z filter in the browser, so filtering feels instant."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "React 19, Vite and React Router 7",
+            "body": "Vite gives instant feedback while building. The router's nested layouts let the navbar and footer exist once, while sign-in and sign-up use their own layout."
+          },
+          {
+            "title": "Context API instead of Redux",
+            "body": "Only two things are truly global here: the signed-in user and the cart. Context covers that without another library. I would reach for a state library only if the app grew."
+          },
+          {
+            "title": "Formik and Yup for forms",
+            "body": "Sign-up and sign-in need clear validation messages. Formik tracks values and touched fields, and Yup keeps the rules in a readable schema."
+          },
+          {
+            "title": "A hosted payment page",
+            "body": "Checkout collects the shipping details and sends the visitor to the payment page created by the API, so payment details never pass through my code."
+          }
+        ],
+        "outcome": [
+          "A complete shopping flow: sign up, sign in, browse products, view details, manage the cart, check out and view orders.",
+          "A responsive layout built on Bootstrap's grid, with a CSS module for every component.",
+          "Live and deployed, with the code public on GitHub."
+        ],
+        "learned": "Planning the data flow first made everything else simpler. Looking back, I would change three things: create one Axios instance that reads the token on every request (today it is read when the file loads, so it can be stale until a refresh after signing in), move server data to TanStack Query for caching and loading states, and connect the orders screen, which currently shows sample data, to the real endpoint. I would also write it in TypeScript, which is what I used for this portfolio."
+      },
+      "velora": {
+        "idea": "Velora is a landing page for a fictional premium organic coffee brand. I wanted to practice what makes a marketing page feel alive — storytelling sections, product cards, motion on scroll — and to do it in Arabic, fully right-to-left, using only HTML, CSS and plain JavaScript.",
+        "role": "Solo project: layout, Arabic copy, styling and all the JavaScript, with no framework.",
+        "challenges": [
+          {
+            "title": "Designing for right-to-left",
+            "body": "The page is Arabic from the root: <html lang=\"ar\" dir=\"rtl\">. Setting the direction once on the root element made text and layout flow right-to-left, and I then checked every section for spacing, icons and slider direction instead of patching them one by one."
+          },
+          {
+            "title": "Many scroll animations, one pattern",
+            "body": "Each section reveals itself when it enters the screen. I used IntersectionObserver rather than scroll listeners, so the browser tells me when something is visible. The stats counters use the same idea: they count up from zero only when the row appears, then stop observing."
+          },
+          {
+            "title": "A navbar that knows where you are",
+            "body": "A scroll-spy highlights the link of the section you are reading and smooth-scrolls when a link is clicked, which makes a single long page easy to navigate."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "No framework",
+            "body": "A brand landing page has no complex state. Plain JavaScript keeps it light and let me practice the browser APIs underneath frameworks."
+          },
+          {
+            "title": "Bootstrap 5 for the grid",
+            "body": "I used it for the responsive grid and the navbar and wrote the visual identity — colours, cards, hero — in my own CSS."
+          },
+          {
+            "title": "Swiper for the testimonials",
+            "body": "A touch-friendly slider with autoplay and clickable pagination, instead of building one from scratch."
+          }
+        ],
+        "outcome": [
+          "A seven-section responsive Arabic landing page: hero, story, products, features, testimonials, call to action and footer.",
+          "Scroll-triggered animations, animated counters, a scroll-spy navbar and a testimonials slider.",
+          "Live on GitHub Pages with the code public."
+        ],
+        "learned": "This project taught me how much work lives in the details of animation timing and RTL. If I rebuilt it today I would share one reveal helper across every section instead of one observer per block, and respect reduced-motion settings."
+      },
+      "qr": {
+        "idea": "A one-screen landing page for a QR-code product, built to practice a polished first impression: a bold hero, subtle depth, and an endless strip of partner logos that signals trust.",
+        "role": "Solo project: design, HTML, CSS and JavaScript.",
+        "challenges": [
+          {
+            "title": "A seamless logo marquee",
+            "body": "The partner strip scrolls forever with no visible jump. The logos are duplicated and the track moves by exactly half of its width, so the loop restarts invisibly. It pauses on hover, and soft fades on both edges hide where logos enter and leave."
+          },
+          {
+            "title": "Depth without heaviness",
+            "body": "The hero content drifts slightly slower than the scroll for a parallax feel, using a passive scroll listener so scrolling is never blocked. Sections fade up once through IntersectionObserver."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "CSS for motion, JavaScript only where needed",
+            "body": "The marquee, hero entrance and glow are CSS animations, which the browser can run smoothly. JavaScript only decides when something becomes visible."
+          },
+          {
+            "title": "Bootstrap for responsiveness",
+            "body": "Spacing and breakpoints are tuned in the stylesheet so the marquee and cards stay balanced on phones."
+          }
+        ],
+        "outcome": [
+          "A focused, fast landing page with a hero entrance, parallax, scroll reveals and an infinite marquee.",
+          "Responsive on phone, tablet and desktop.",
+          "Live on Vercel with the code public."
+        ],
+        "learned": "Small, well-timed animation does more for perceived quality than many effects. Next time I would add a prefers-reduced-motion fallback from the start and compress the logo images further."
+      },
+      "alex": {
+        "idea": "A portfolio for a back-end developer. The challenge was to make a back-end profile feel visual: so the hero types out a real API route, as if you were watching the developer write it.",
+        "role": "Solo project: structure, design, content layout and all the React code.",
+        "challenges": [
+          {
+            "title": "A typing animation done the React way",
+            "body": "The code in the hero is typed one character at a time with a blinking cursor. State tracks the current line and character, and a timer inside useEffect advances it and is cleaned up on every step, so nothing keeps running after the component unmounts."
+          },
+          {
+            "title": "Filterable projects",
+            "body": "Visitors can filter the project list by category. The filter is derived from a single piece of state and the list, so there is no duplicated data to keep in sync."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "Sections as components",
+            "body": "Hero, About, Experience, Tech Stack, Projects and Contact are separate components with their own CSS modules, so each part can change without touching the others."
+          },
+          {
+            "title": "Content kept as data",
+            "body": "Projects, stats and tech tags live in arrays at the top of each file, so updating the portfolio is an edit to data, not to markup."
+          }
+        ],
+        "outcome": [
+          "A responsive one-page portfolio with a typing hero, floating technology tags, an experience section, tech stack, filterable projects and a contact section.",
+          "Live on Vercel with the code public. The profile content is sample content for the design."
+        ],
+        "learned": "Animation timers are easy to get subtly wrong in React. This project taught me to always clean up effects. Next time I would add proper TypeScript types for the content arrays."
+      },
+      "ahmed": {
+        "idea": "A clean, professional portfolio for a back-end developer, centred on the essentials a recruiter looks for: skills, experience, selected projects and an easy way to get in touch, with a one-click résumé button.",
+        "role": "Solo project: planning, design and all the React code.",
+        "challenges": [
+          {
+            "title": "Navigation that follows the reader",
+            "body": "The navbar highlights the section currently on screen and changes style after scrolling. A scroll handler works out the active section, and the listener is removed on cleanup. On mobile, tapping a link closes the menu."
+          },
+          {
+            "title": "Keeping a simple site simple",
+            "body": "With few sections it is tempting to over-build. I kept one page, one layout and small components, so the site stays fast and easy to read."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "React with CSS Modules",
+            "body": "Scoped styles per component avoid class-name clashes and make each section independent."
+          },
+          {
+            "title": "A visible résumé action",
+            "body": "The résumé download sits in the navbar, where recruiters expect it."
+          }
+        ],
+        "outcome": [
+          "A responsive one-page portfolio with skills, experience, projects and contact sections.",
+          "A scroll-aware navbar and a mobile menu.",
+          "Live on Vercel with the code public. The profile content is sample content for the design."
+        ],
+        "learned": "Restraint is a design decision: fewer sections made the page clearer. I would add semantic landmarks and keyboard focus styles earlier in the process."
+      },
+      "youssef": {
+        "idea": "A portfolio for a web designer and software engineer with personality: a typewriter headline that alternates between the two roles, followed by skills, projects, key numbers and a contact section.",
+        "role": "Solo project: design, structure and all the React code.",
+        "challenges": [
+          {
+            "title": "A two-role typewriter",
+            "body": "The headline types one role, pauses, deletes it and types the next. It is a small state machine — typing, pausing, deleting — driven by a timer inside useEffect."
+          },
+          {
+            "title": "Showing numbers without clutter",
+            "body": "A compact stats row summarises the work (projects, files, lines of code) so the page communicates scale at a glance without long paragraphs."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "React, Bootstrap and CSS Modules",
+            "body": "Bootstrap handles the responsive grid and the collapsing navbar; CSS Modules hold the custom look of each section."
+          },
+          {
+            "title": "A fixed navbar that adapts",
+            "body": "It stays visible and changes its background after the page scrolls, so it never fights the hero."
+          }
+        ],
+        "outcome": [
+          "A responsive one-page portfolio with a typewriter hero, about, skills, stats, projects and contact sections.",
+          "A downloadable résumé action.",
+          "Live on Vercel with the code public. The profile content is sample content for the design."
+        ],
+        "learned": "Even a simple animation benefits from being modelled as states. If I rebuilt it I would pause the typewriter for reduced-motion users and replace the placeholder numbers with real ones."
+      }
     }
   }
 }

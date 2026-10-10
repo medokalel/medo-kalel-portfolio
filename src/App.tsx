@@ -34,6 +34,7 @@ async function rootLoader({ request }: LoaderFunctionArgs) {
 
 /** Secondary pages are loaded on demand, so the home page ships less JavaScript. */
 const projectsPage = { lazy: async () => ({ Component: (await import('@/pages/ProjectsPage')).default }) }
+const caseStudyPage = { lazy: async () => ({ Component: (await import('@/pages/CaseStudyPage')).default }) }
 const notFoundPage = { lazy: async () => ({ Component: (await import('@/pages/NotFoundPage')).default }) }
 
 /** Root route: new pages open at the top, Back restores the old position, #hash links still work. */
@@ -58,6 +59,7 @@ function pagesFor(prefix: '' | '/ar'): RouteObject[] {
       ],
     },
     { path: `${prefix}/projects`, ...projectsPage },
+    { path: `${prefix}/projects/:projectId`, ...caseStudyPage },
     // Old URL (kept so existing links don't break)
     { path: `${prefix}/projectspage`, element: <Navigate to={`${prefix}/projects`} replace /> },
   ]
