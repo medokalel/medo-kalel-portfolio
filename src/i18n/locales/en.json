@@ -64,7 +64,7 @@
     "location": "Tanta, Egypt",
     "skillsTitle": "Skills & Technologies",
     "badges": {
-      "certified": "Certified",
+      "certified": "DEPI Certified",
       "coffee": "Coffee Addict"
     },
     "stats": {
@@ -220,7 +220,8 @@
         "achievements": [
           "Completed HTML5, CSS3 & Responsive Design modules",
           "REST APIs and asynchronous data fetching",
-          "Context API, JWT auth and protected routes"
+          "Context API, JWT auth and protected routes",
+          "Earned the DEPI completion certificate"
         ]
       },
       "selftaught": {

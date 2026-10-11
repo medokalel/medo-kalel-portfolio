@@ -64,7 +64,7 @@
     "location": "طنطا، مصر",
     "skillsTitle": "المهارات والتقنيات",
     "badges": {
-      "certified": "حاصل على شهادة",
+      "certified": "شهادة DEPI",
       "coffee": "مدمن قهوة"
     },
     "stats": {
@@ -224,7 +224,8 @@
         "achievements": [
           "إنهاء وحدات HTML5 وCSS3 والتصميم المتجاوب",
           "التعامل مع REST APIs وجلب البيانات غير المتزامن",
-          "Context API والمصادقة بـ JWT والمسارات المحمية"
+          "Context API والمصادقة بـ JWT والمسارات المحمية",
+          "الحصول على شهادة إتمام DEPI"
         ]
       },
       "selftaught": {
