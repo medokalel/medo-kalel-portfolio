@@ -56,7 +56,7 @@
     "titleHighlight": "Creating Impact",
     "p1": "I'm Mohamed Khalil, a front-end developer from Egypt. I build with React, JavaScript, TypeScript, and CSS. Most of my focus goes into making interfaces that work well on any screen and don't get in the user's way.",
     "p2": "I completed the DEPI React Front-End Developer track and built several projects along the way: an e-commerce app, a weather app, and DevFolio. Honestly, I learned more from debugging those than from any course.",
-    "p3": "Currently interning at CASCO, one of the world's leading testing and certification companies, working on real product UI and spending a lot of time in Figma.",
+    "p3": "Since January 2026 I've been a front-end intern at CASCOTEC, working on iCasco, a certification management platform built with React, Vite and TypeScript, with full Arabic/English (RTL/LTR) support. I've built pages from scratch, written the form-validation logic, turned Figma mobile designs into reusable components, and audited the platform's 22 API endpoints.",
     "downloadCv": "Download CV",
     "cvFormat": "PDF",
     "portraitAlt": "Portrait of Mohamed Khalil",
@@ -137,10 +137,10 @@
         "title": "Front-End Development",
         "description": "Building responsive, performant web applications using modern frameworks and best practices.",
         "features": [
-          "React & Next.js",
+          "React & Vite",
           "TypeScript",
-          "State Management",
-          "API Integration"
+          "Context API",
+          "REST API Integration"
         ]
       },
       "responsive": {
@@ -160,26 +160,26 @@
           "SEO Optimized",
           "Fast Loading",
           "Conversion Focused",
-          "Analytics Ready"
+          "Scroll Animations"
         ]
       },
       "react": {
         "title": "React Applications",
-        "description": "Developing scalable single-page applications with complex state management and routing.",
+        "description": "Developing single-page applications with routing, shared state and validated forms.",
         "features": [
-          "Redux/Zustand",
+          "Context API",
           "React Router",
           "Code Splitting",
-          "Testing"
+          "Form Validation"
         ]
       },
       "ui": {
         "title": "UI Implementation",
-        "description": "Translating designs from Figma, Sketch, or Adobe XD into pixel-perfect, interactive interfaces.",
+        "description": "Translating Figma designs into pixel-perfect, interactive interfaces.",
         "features": [
           "Figma to Code",
-          "Design Systems",
-          "Component Libraries",
+          "Reusable Components",
+          "Responsive Layouts",
           "Animations"
         ]
       },
@@ -201,25 +201,26 @@
     "titleHighlight": "So Far",
     "items": {
       "casco": {
-        "title": "Front-End Developer Intern",
-        "company": "CASCO",
-        "period": "2026 - present",
-        "description": "Working on real product UI at one of the world's leading testing and certification companies, focusing on building and improving web interfaces while spending a lot of time in Figma.",
+        "title": "Front-End Development Intern",
+        "company": "CASCOTEC",
+        "period": "Jan 2026 - Present",
+        "description": "Building features on iCasco, a certification management platform made with React, Vite and TypeScript and available in Arabic and English (RTL/LTR), from forms and validation to full dashboard pages.",
         "achievements": [
-          "Working on real product UI",
-          "Collaborating with design in Figma",
-          "Applying React & modern CSS"
+          "Built dashboard pages from scratch (Tasks and Activities)",
+          "Form validation with custom hooks and a central validators module",
+          "Figma mobile designs turned into reusable components",
+          "Audited 22 API endpoints and handled bilingual RTL/LTR layouts"
         ]
       },
       "depi": {
         "title": "React Front-End Developer Trainee",
         "company": "Digital Egypt Pioneers Initiative (DEPI)",
-        "period": "2025 - 2026",
-        "description": "Currently enrolled in an intensive React Front-End Development track focused on building modern, responsive web applications and applying industry best practices.",
+        "period": "Oct 2025 - Jun 2026",
+        "description": "Built real-world web applications with React and modern JavaScript, including REST API integration, Context API state management, JWT authentication, cart management and protected routes.",
         "achievements": [
           "Completed HTML5, CSS3 & Responsive Design modules",
-          "Building real-world React projects",
-          "Improving problem-solving & UI skills"
+          "REST APIs and asynchronous data fetching",
+          "Context API, JWT auth and protected routes"
         ]
       },
       "selftaught": {
