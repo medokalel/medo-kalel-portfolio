@@ -22,6 +22,7 @@ function syncMeta(language: Language) {
 
 /** Keeps <html lang> and <html dir> in sync with the active language (RTL for Arabic). */
 function applyDocumentLanguage(lng: string) {
+  if (typeof document === 'undefined') return // prerender build: no document
   const language = isLanguage(lng) ? lng : defaultLanguage
   document.documentElement.lang = language
   document.documentElement.dir = languages[language].dir

@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="public/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <title>Mohamed Khalil | Front-End Developer</title>
     <meta
@@ -14,6 +19,8 @@
     <meta name="theme-color" content="#0a0a0f" />
     <!-- Applies the saved theme before first paint (no dark→light flash). Keep in sync with src/lib/theme.ts -->
     <script>
+      // "js" lets CSS hide not-yet-revealed sections only when scripts run (prerendered pages stay fully visible without JS).
+      document.documentElement.classList.add("js");
       try {
         var theme = localStorage.getItem("portfolio-theme");
         if (theme === "light" || theme === "dark") {
@@ -66,7 +73,6 @@
     </script>
   </head>
   <body>
-    <noscript>This site needs JavaScript to run.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

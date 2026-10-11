@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { inject } from '@vercel/analytics'
 import './i18n'
 import './index.css'
 import '@fontsource-variable/inter/wght.css'
@@ -15,3 +16,6 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
+
+// Cookie-free page-view counting (Vercel Web Analytics). Production only: the script is served by Vercel itself.
+if (import.meta.env.PROD) inject()

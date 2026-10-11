@@ -228,7 +228,7 @@
  * Uses the `translate` property (not `transform`) so hover transforms on the same element keep working.
  */
 @media (prefers-reduced-motion: no-preference) {
-  [data-reveal]:not([data-revealed]) {
+  .js [data-reveal]:not([data-revealed]) {
     opacity: 0;
   }
 

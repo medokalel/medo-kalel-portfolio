@@ -12,7 +12,7 @@ const focusRing =
 export default function Navbar() {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 50);
+  const [scrolled, setScrolled] = useState(() => typeof window !== "undefined" && window.scrollY > 50);
   const burgerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLElement>(null);

@@ -15,7 +15,7 @@ function upsertLink(attrs: Record<string, string>, href: string) {
 
 /** Points canonical, og:url and hreflang alternates at the current page (needs VITE_SITE_URL). */
 export function updateSeoLinks(pathname: string) {
-  if (!siteUrl) return
+  if (!siteUrl || typeof document === 'undefined') return
   const base = stripLanguagePrefix(pathname)
   const urlFor = (language: (typeof supportedLanguages)[number]) => siteUrl + localizePath(base, language)
 

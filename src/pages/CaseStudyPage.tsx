@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, useParams } from 'react-router-dom'
 import { getAllProjectsSorted, getProjectById, formatDate } from '@/content/projects'
@@ -18,23 +17,11 @@ const bodyText = 'm-0 font-system text-base leading-[1.8] text-fg-muted'
 export default function CaseStudyPage() {
   const { projectId } = useParams()
   const project = getProjectById(projectId)
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const { language, localize } = useLanguage()
 
   const title = project ? t(`projects.items.${project.id}.title`) : ''
   const idea = project ? t(`caseStudy.items.${project.id}.idea`) : ''
-
-  // Page-specific <title> and description; restored to the site defaults when leaving the page.
-  useEffect(() => {
-    if (!project) return
-    const meta = document.head.querySelector('meta[name="description"]')
-    document.title = t('caseStudy.metaTitle', { title })
-    meta?.setAttribute('content', idea.slice(0, 155))
-    return () => {
-      document.title = i18n.t('meta.title')
-      meta?.setAttribute('content', i18n.t('meta.description'))
-    }
-  }, [project, title, idea, language, t, i18n])
 
   if (!project) return <NotFoundPage />
 
