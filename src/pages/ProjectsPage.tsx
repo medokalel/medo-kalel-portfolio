@@ -15,6 +15,7 @@ const filters: { key: ProjectFilter; icon: string }[] = [
   { key: 'portfolio', icon: 'fa-briefcase' },
   { key: 'landing', icon: 'fa-rocket' },
   { key: 'ecommerce', icon: 'fa-cart-shopping' },
+  { key: 'app', icon: 'fa-cloud-sun' },
 ]
 
 const allProjects = getAllProjectsSorted()

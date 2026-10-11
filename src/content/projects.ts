@@ -7,9 +7,10 @@ import landingPage from '@/assets/images/velora.webp'
 import youssefKamelPortfolio from '@/assets/images/youssef-portfolio.webp'
 import ahmedSamirPortfolio from '@/assets/images/ahmed-portfolio.webp'
 import alexPortfolio from '@/assets/images/alex-portfolio.webp'
+import weatherApp from '@/assets/images/weather.webp'
 import qrLandingPage from '@/assets/images/qr-landing.webp'
 
-export type ProjectCategory = 'ecommerce' | 'landing' | 'portfolio'
+export type ProjectCategory = 'ecommerce' | 'landing' | 'portfolio' | 'app'
 export type { ProjectId }
 
 /** Title and description live in the locale files: t(`projects.items.${id}.title`). */
@@ -78,6 +79,15 @@ export const projectsData: readonly Project[] = [
     liveUrl: 'https://youssef-kamel-portfolio.vercel.app/',
     codeUrl: 'https://github.com/medokalel/youssef-kamel-portfolio',
     date: '2026-07-08'
+  },
+  {
+    id: 'weather',
+    category: 'app',
+    image: weatherApp,
+    tags: ['HTML5', 'CSS3', 'JavaScript', 'WeatherAPI'],
+    liveUrl: 'https://weather-forecast-app-five-wine.vercel.app/',
+    codeUrl: 'https://github.com/medokalel/weather-forecast-app',
+    date: '2026-02-25'
   }
 ]
 

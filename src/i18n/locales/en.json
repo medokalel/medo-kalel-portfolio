@@ -86,7 +86,8 @@
     "categories": {
       "ecommerce": "E-Commerce",
       "landing": "Landing Page",
-      "portfolio": "Portfolio"
+      "portfolio": "Portfolio",
+      "app": "Web App"
     },
     "items": {
       "ecommerce": {
@@ -112,6 +113,10 @@
       "youssef": {
         "title": "Portfolio WebSite for Web Design",
         "description": "A modern and fully responsive personal portfolio website built to showcase professional skills, projects, and contact information. Designed with a clean UI, smooth navigation, and optimized performance to create a strong online presence."
+      },
+      "weather": {
+        "title": "Weather Forecast App",
+        "description": "A responsive three-day weather forecast with live city search suggestions, a °C/°F toggle, and clear fallbacks when the network or the API fails. Plain HTML, CSS and JavaScript."
       }
     },
     "viewCaseStudy": "Case study"
@@ -497,6 +502,54 @@
           "Live on Vercel with the code public. The profile content is sample content for the design."
         ],
         "learned": "Even a simple animation benefits from being modelled as states. If I rebuilt it I would pause the typewriter for reduced-motion users and replace the placeholder numbers with real ones."
+      },
+      "weather": {
+        "idea": "A weather app I built during DEPI to practise HTML, CSS, JavaScript and working with a real API. It shows today's conditions and the next two days for any city, using WeatherAPI. After the first version worked I rewrote it for reliability: a search that does not hammer the API, honest error states, and a layout that works with a keyboard.",
+        "role": "Solo project: HTML, CSS, JavaScript, API integration, and the later rewrite for reliability and accessibility.",
+        "challenges": [
+          {
+            "title": "Search that fires on every keystroke",
+            "body": "The first version requested a full forecast for every letter typed after the third. That wastes the API quota, and a slow response for \"Alex\" could arrive after the one for \"Alexandria\" and overwrite it. Typing now only fetches suggestions, debounced by 300 ms, and every request cancels the previous one with AbortController, so the latest request always wins."
+          },
+          {
+            "title": "Everything that can go wrong with a network call",
+            "body": "A city that does not exist, a lost connection, a slow server and an exhausted quota all used to leave the page frozen on the previous result. Requests now time out after 10 seconds, WeatherAPI error codes map to plain-language messages with a Try again button, and when the network fails the app shows the last saved forecast for that city with a clear warning."
+          },
+          {
+            "title": "An API key that ended up on GitHub",
+            "body": "The first version had the key written straight into the script and pushed to a public repository. I moved it into a config file that is not committed, generate that file from an environment variable in the Vercel build step, and rotated the exposed key. The main lesson is that any key used in browser JavaScript is visible to visitors, so a front-end key must be low-value and replaceable."
+          },
+          {
+            "title": "Dates that showed the wrong weekday",
+            "body": "Parsing a date-only string such as 2026-10-11 with new Date() treats it as UTC, so viewers west of UTC could see the previous day. The forecast date already belongs to the city, so it is now formatted as-is, without shifting it by the viewer's time zone."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "Shape the API response before rendering",
+            "body": "The raw payload is validated and reduced to a small model with only the fields the UI uses. If something is missing, the app reports a readable error instead of crashing halfway through updating the screen."
+          },
+          {
+            "title": "Write API text with textContent, never innerHTML",
+            "body": "City names and conditions come from an external service, so they are inserted as plain text. Icon URLs are only accepted from WeatherAPI's own CDN, with a local fallback icon if one fails to load."
+          },
+          {
+            "title": "Both units from one response",
+            "body": "WeatherAPI returns Celsius and Fahrenheit together, so switching units only re-renders the data already on the page. The choice and the last city are remembered between visits."
+          },
+          {
+            "title": "Ask for location only when the user taps the button",
+            "body": "A permission prompt on page load is intrusive and easy to dismiss by reflex. The Use my location button asks at the moment the user wants it, and a denial shows a clear message and leaves search available."
+          }
+        ],
+        "outcome": [
+          "A working three-day forecast with live suggestions, a °C/°F toggle and remembered settings.",
+          "Reliable under failure: timeouts, cancelled stale requests, readable errors and a saved-forecast fallback.",
+          "Keyboard-operable search (combobox pattern), labelled controls, visible focus and reduced-motion support.",
+          "The background image went from 12.6 MB to 354 KB, and the page no longer loads Font Awesome or Google Fonts.",
+          "Live on Vercel with the code public."
+        ],
+        "learned": "Most of the work in a small API app is not the happy path, it is cancelled requests, error messages and bad data. Next I would add unit tests for the data-shaping and formatting functions, and put the API key behind a tiny serverless proxy so it is not exposed to the browser at all."
       }
     }
   }
