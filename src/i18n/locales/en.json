@@ -103,16 +103,8 @@
         "description": "A modern QR code landing page featuring responsive design, clean UI, smooth interactions, and a scrolling logo marquee showcasing trusted brands for a more engaging user experience."
       },
       "alex": {
-        "title": "Portfolio WebSite for Backend Developer",
-        "description": "A clean and responsive portfolio website built to present projects, skills, and personal information with a modern design, intuitive navigation, and a seamless user experience."
-      },
-      "ahmed": {
-        "title": "Portfolio WebSite for Backend Developer",
-        "description": "A responsive personal portfolio website designed to highlight professional experience, technical skills, and featured projects. Built with a modern, clean interface and smooth user experience to leave a lasting impression."
-      },
-      "youssef": {
-        "title": "Portfolio WebSite for Web Design",
-        "description": "A modern and fully responsive personal portfolio website built to showcase professional skills, projects, and contact information. Designed with a clean UI, smooth navigation, and optimized performance to create a strong online presence."
+        "title": "Developer Portfolio Template",
+        "description": "A dark developer-portfolio template with an animated code-editor hero, filterable project cards, a tech stack and an experience timeline. All content is sample data, and the page says so."
       },
       "weather": {
         "title": "Weather Forecast App",
@@ -429,16 +421,20 @@
         "learned": "Small, well-timed animation does more for perceived quality than many effects. Next time I would add a prefers-reduced-motion fallback from the start and compress the logo images further."
       },
       "alex": {
-        "idea": "A portfolio for a back-end developer. The challenge was to make a back-end profile feel visual: so the hero types out a real API route, as if you were watching the developer write it.",
+        "idea": "A dark portfolio template for a back-end developer, built to practise layout, CSS modules and small interactions. The challenge was to make a back-end profile feel visual, so the hero types out a real API route as if you were watching the code being written. All the content (the name, companies, numbers and projects) is made-up sample data, and the page says so.",
         "role": "Solo project: structure, design, content layout and all the React code.",
         "challenges": [
           {
-            "title": "A typing animation done the React way",
-            "body": "The code in the hero is typed one character at a time with a blinking cursor. State tracks the current line and character, and a timer inside useEffect advances it and is cleaned up on every step, so nothing keeps running after the component unmounts."
+            "title": "A typing animation without a pile of linked state",
+            "body": "The hero code is typed one character at a time with a blinking cursor. A single tick counter drives everything: how many lines are visible and how much of the current line is typed are calculated from it, so there is one timer to start and clean up. With prefers-reduced-motion the finished code appears at once, and the decorative editor is hidden from screen readers."
           },
           {
             "title": "Filterable projects",
             "body": "Visitors can filter the project list by category. The filter is derived from a single piece of state and the list, so there is no duplicated data to keep in sync."
+          },
+          {
+            "title": "Sample content that cannot be mistaken for real",
+            "body": "The template shows a made-up engineer with made-up employers. Instead of leaving that to guesswork, the page carries a dismissible Demo template notice, the project cards say Sample project, the company names are fictional, and the only real contact details are mine. Buttons with nowhere real to go were removed rather than left pointing at #."
           }
         ],
         "decisions": [
@@ -448,74 +444,19 @@
           },
           {
             "title": "Content kept as data",
-            "body": "Projects, stats and tech tags live in arrays at the top of each file, so updating the portfolio is an edit to data, not to markup."
+            "body": "Projects, stats and tech tags live in arrays at the top of each file, so filling the template with real details is an edit to data, not to markup."
+          },
+          {
+            "title": "Remove what does not work",
+            "body": "The contact form only logged to the console, so I removed it instead of shipping a button that does nothing. Unused packages and a duplicate font import went with it."
           }
         ],
         "outcome": [
-          "A responsive one-page portfolio with a typing hero, floating technology tags, an experience section, tech stack, filterable projects and a contact section.",
+          "A responsive one-page template with a typing hero, floating technology tags, an experience timeline, a tech stack, filterable projects and a contact section.",
+          "No automated accessibility violations (axe) on desktop and mobile, no horizontal scrolling, and motion switched off for visitors who ask for it.",
           "Live on Vercel with the code public. The profile content is sample content for the design."
         ],
-        "learned": "Animation timers are easy to get subtly wrong in React. This project taught me to always clean up effects. Next time I would add proper TypeScript types for the content arrays."
-      },
-      "ahmed": {
-        "idea": "A clean, professional portfolio for a back-end developer, centred on the essentials a recruiter looks for: skills, experience, selected projects and an easy way to get in touch, with a one-click résumé button.",
-        "role": "Solo project: planning, design and all the React code.",
-        "challenges": [
-          {
-            "title": "Navigation that follows the reader",
-            "body": "The navbar highlights the section currently on screen and changes style after scrolling. A scroll handler works out the active section, and the listener is removed on cleanup. On mobile, tapping a link closes the menu."
-          },
-          {
-            "title": "Keeping a simple site simple",
-            "body": "With few sections it is tempting to over-build. I kept one page, one layout and small components, so the site stays fast and easy to read."
-          }
-        ],
-        "decisions": [
-          {
-            "title": "React with CSS Modules",
-            "body": "Scoped styles per component avoid class-name clashes and make each section independent."
-          },
-          {
-            "title": "A visible résumé action",
-            "body": "The résumé download sits in the navbar, where recruiters expect it."
-          }
-        ],
-        "outcome": [
-          "A responsive one-page portfolio with skills, experience, projects and contact sections.",
-          "A scroll-aware navbar and a mobile menu.",
-          "Live on Vercel with the code public. The profile content is sample content for the design."
-        ],
-        "learned": "Restraint is a design decision: fewer sections made the page clearer. I would add semantic landmarks and keyboard focus styles earlier in the process."
-      },
-      "youssef": {
-        "idea": "A portfolio for a web designer and software engineer with personality: a typewriter headline that alternates between the two roles, followed by skills, projects, key numbers and a contact section.",
-        "role": "Solo project: design, structure and all the React code.",
-        "challenges": [
-          {
-            "title": "A two-role typewriter",
-            "body": "The headline types one role, pauses, deletes it and types the next. It is a small state machine — typing, pausing, deleting — driven by a timer inside useEffect."
-          },
-          {
-            "title": "Showing numbers without clutter",
-            "body": "A compact stats row summarises the work (projects, files, lines of code) so the page communicates scale at a glance without long paragraphs."
-          }
-        ],
-        "decisions": [
-          {
-            "title": "React, Bootstrap and CSS Modules",
-            "body": "Bootstrap handles the responsive grid and the collapsing navbar; CSS Modules hold the custom look of each section."
-          },
-          {
-            "title": "A fixed navbar that adapts",
-            "body": "It stays visible and changes its background after the page scrolls, so it never fights the hero."
-          }
-        ],
-        "outcome": [
-          "A responsive one-page portfolio with a typewriter hero, about, skills, stats, projects and contact sections.",
-          "A downloadable résumé action.",
-          "Live on Vercel with the code public. The profile content is sample content for the design."
-        ],
-        "learned": "Even a simple animation benefits from being modelled as states. If I rebuilt it I would pause the typewriter for reduced-motion users and replace the placeholder numbers with real ones."
+        "learned": "Animation timers are easy to get subtly wrong in React, and one derived counter is easier to reason about than several linked pieces of state. I also learned to be explicit about demo content, because a convincing fake profile can be mistaken for a real one. Next time I would add TypeScript types for the content arrays."
       },
       "weather": {
         "idea": "A weather app I built during DEPI to practise HTML, CSS, JavaScript and working with a real API. It shows today's conditions and the next two days for any city, using WeatherAPI. After the first version worked I rewrote it for reliability: a search that does not hammer the API, honest error states, and a layout that works with a keyboard.",
