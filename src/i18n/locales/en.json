@@ -92,7 +92,7 @@
     "items": {
       "ecommerce": {
         "title": "E-Commerce Platform",
-        "description": "A modern e-commerce platform with real-time inventory, payment integration, and advanced product filtering."
+        "description": "A React online store with accounts, product search, a cart, a checkout that hands payment to a hosted page, and an orders page. It runs on a public practice API."
       },
       "velora": {
         "title": "Landing Page",
@@ -313,8 +313,16 @@
             "body": "The cart badge in the navbar has to match the cart page, even after adding a product from another page. Instead of passing counts around, I put every cart action in one CartContext. Add, update, remove and load all read the item count from the API response and update the shared state, so the badge changes in exactly one place."
           },
           {
+            "title": "A token that was always one step behind",
+            "body": "After signing in, adding to the cart failed until the page was refreshed. The cart code read the saved token once, when its file loaded, so every request after login still carried the empty one. The token is now read at the moment each request is sent, and the cart provider reloads the count whenever the login state changes."
+          },
+          {
             "title": "Keeping private pages private",
-            "body": "Cart, orders and checkout must not open for a signed-out visitor. I wrapped those routes in a ProtectedRoutes component that checks the saved token and redirects to the sign-in page, so the rule is written once instead of in every page."
+            "body": "Cart, orders and checkout must not open for a signed-out visitor. I wrapped those routes in a ProtectedRoutes component that reads the login state from context, so logging out sends the visitor to the sign-in page immediately, and the rule is written once instead of in every page."
+          },
+          {
+            "title": "Everything that can fail on a network call",
+            "body": "Early on, a failed request left a blank page or crashed a screen, for example when a session expired. Every call now rejects on failure and each screen shows a readable message with a Try again button, and the sign-in form shows the API's own error text."
           },
           {
             "title": "Brands from a paginated API",
@@ -332,19 +340,25 @@
           },
           {
             "title": "Formik and Yup for forms",
-            "body": "Sign-up and sign-in need clear validation messages. Formik tracks values and touched fields, and Yup keeps the rules in a readable schema."
+            "body": "Sign-up, sign-in and checkout need clear validation messages. Formik tracks values and touched fields, and Yup keeps the rules in a readable schema."
           },
           {
             "title": "A hosted payment page",
-            "body": "Checkout collects the shipping details and sends the visitor to the payment page created by the API, so payment details never pass through my code."
+            "body": "Checkout collects the shipping details and sends the visitor to the payment page created by the API, so card details never pass through my code. The return address is the site's own origin, so it works wherever the app is deployed."
+          },
+          {
+            "title": "Load heavy pages on demand",
+            "body": "Products, cart, checkout, orders, brands and the auth pages are loaded with React.lazy, which cut the first download from about 675 kB to about 555 kB of JavaScript."
           }
         ],
         "outcome": [
-          "A complete shopping flow: sign up, sign in, browse products, view details, manage the cart, check out and view orders.",
+          "A complete shopping flow: sign up, sign in, browse and search products, view details, manage the cart, check out and see your real orders.",
+          "Every screen that calls the API has loading and error states, with a way to try again.",
+          "Real data only: I removed fake discounts, placeholder order history and buttons that did nothing, so what the screen shows is what the API returned.",
           "A responsive layout built on Bootstrap's grid, with a CSS module for every component.",
           "Live and deployed, with the code public on GitHub."
         ],
-        "learned": "Planning the data flow first made everything else simpler. Looking back, I would change three things: create one Axios instance that reads the token on every request (today it is read when the file loads, so it can be stale until a refresh after signing in), move server data to TanStack Query for caching and loading states, and connect the orders screen, which currently shows sample data, to the real endpoint. I would also write it in TypeScript, which is what I used for this portfolio."
+        "learned": "A project is not finished when the happy path works. When I reviewed it the way a client would, I found a stale token, a payment return address hard-coded to localhost, error cases that crashed screens, and placeholder data presented as real. Fixing those taught me more than building the first version did. Next I would add TanStack Query for caching and tests for the cart logic, and I would write it in TypeScript, which I started using after this project."
       },
       "velora": {
         "idea": "Velora is a landing page for a fictional premium organic coffee brand. I wanted to practice what makes a marketing page feel alive — storytelling sections, product cards, motion on scroll — and to do it in Arabic, fully right-to-left, using only HTML, CSS and plain JavaScript.",
