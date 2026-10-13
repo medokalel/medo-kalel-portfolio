@@ -65,7 +65,7 @@ export const projectsData: readonly Project[] = [
     category: 'app',
     image: weatherApp,
     tags: ['HTML5', 'CSS3', 'JavaScript', 'WeatherAPI'],
-    liveUrl: 'https://weather-forecast-app.vercel.app/',
+    liveUrl: 'https://weather-forecast-app-five-wine.vercel.app/',
     codeUrl: 'https://github.com/medokalel/weather-forecast-app',
     date: '2026-02-25'
   }
