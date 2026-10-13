@@ -24,7 +24,7 @@
     "switchTo": "تغيير اللغة إلى {{language}}"
   },
   "hero": {
-    "available": "متاح للعمل",
+    "available": "متاح للعمل الحر",
     "titleLine1": "أبني تجارب",
     "titleHighlight": "رقمية",
     "titleLine3": "ذات قيمة",
@@ -268,7 +268,7 @@
     "copied": "تم النسخ!",
     "locationLabel": "الموقع",
     "location": "طنطا، مصر",
-    "availability": "متاح للعمل",
+    "availability": "متاح للعمل الحر",
     "responseTime": "أرد عادةً خلال 24 ساعة",
     "errors": {
       "nameRequired": "من فضلك أدخل اسمك.",

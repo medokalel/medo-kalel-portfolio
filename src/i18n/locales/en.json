@@ -24,7 +24,7 @@
     "switchTo": "Switch language to {{language}}"
   },
   "hero": {
-    "available": "Available for Work",
+    "available": "Available for Freelance Work",
     "titleLine1": "Building Digital",
     "titleHighlight": "Experiences",
     "titleLine3": "That Matter",
@@ -264,7 +264,7 @@
     "copied": "Copied!",
     "locationLabel": "Location",
     "location": "Tanta, Egypt",
-    "availability": "Available for Work",
+    "availability": "Available for Freelance Work",
     "responseTime": "Usually responds in 24h",
     "errors": {
       "nameRequired": "Please enter your name.",
