@@ -95,12 +95,12 @@
         "description": "A React online store with accounts, product search, a cart, a checkout that hands payment to a hosted page, and an orders page. It runs on a public practice API."
       },
       "velora": {
-        "title": "Landing Page",
-        "description": "A modern and responsive coffee website featuring smooth animations, interactive sections, and a visually engaging user experience."
+        "title": "Coffee Brand Landing Page",
+        "description": "An Arabic, right-to-left landing page for a fictional organic coffee brand, with scroll reveals, animated counters and a testimonials slider. Demo content."
       },
       "qr": {
-        "title": "Qr Landing Page",
-        "description": "A modern QR code landing page featuring responsive design, clean UI, smooth interactions, and a scrolling logo marquee showcasing trusted brands for a more engaging user experience."
+        "title": "Logo Marquee Landing Page",
+        "description": "A one-screen demo landing page with an animated hero and an endless partner-logo marquee. Sample content, plain HTML, CSS and JavaScript."
       },
       "alex": {
         "title": "Developer Portfolio Template",
@@ -353,8 +353,8 @@
         "learned": "A project is not finished when the happy path works. When I reviewed it the way a client would, I found a stale token, a payment return address hard-coded to localhost, error cases that crashed screens, and placeholder data presented as real. Fixing those taught me more than building the first version did. Next I would add TanStack Query for caching and tests for the cart logic, and I would write it in TypeScript, which I started using after this project."
       },
       "velora": {
-        "idea": "Velora is a landing page for a fictional premium organic coffee brand. I wanted to practice what makes a marketing page feel alive — storytelling sections, product cards, motion on scroll — and to do it in Arabic, fully right-to-left, using only HTML, CSS and plain JavaScript.",
-        "role": "Solo project: layout, Arabic copy, styling and all the JavaScript, with no framework.",
+        "idea": "Velora is a landing page for a fictional premium organic coffee brand. I wanted to practice what makes a marketing page feel alive (storytelling sections, product cards, motion on scroll) and to do it in Arabic, fully right-to-left, with HTML, CSS and plain JavaScript. The products, prices, reviews and numbers are sample content, and the page says so.",
+        "role": "Solo project: layout, Arabic copy, styling and all the JavaScript, with no framework. I later reviewed and cleaned it up before featuring it.",
         "challenges": [
           {
             "title": "Designing for right-to-left",
@@ -362,11 +362,11 @@
           },
           {
             "title": "Many scroll animations, one pattern",
-            "body": "Each section reveals itself when it enters the screen. I used IntersectionObserver rather than scroll listeners, so the browser tells me when something is visible. The stats counters use the same idea: they count up from zero only when the row appears, then stop observing."
+            "body": "Each section reveals itself when it enters the screen. I used IntersectionObserver rather than scroll listeners, and one small helper adds the animation class to every block. The classes are added by JavaScript, so if the script fails the whole page is still visible, and reveals are skipped for visitors who prefer reduced motion."
           },
           {
-            "title": "A navbar that knows where you are",
-            "body": "A scroll-spy highlights the link of the section you are reading and smooth-scrolls when a link is clicked, which makes a single long page easy to navigate."
+            "title": "Honest demo behaviour",
+            "body": "A first version had buttons and a newsletter form that did nothing. I replaced the dead links with real section anchors and made the cart buttons and the form show a clear message that this is a demo and nothing is sent or stored."
           }
         ],
         "decisions": [
@@ -376,49 +376,53 @@
           },
           {
             "title": "Bootstrap 5 for the grid",
-            "body": "I used it for the responsive grid and the navbar and wrote the visual identity — colours, cards, hero — in my own CSS."
+            "body": "I used it for the responsive grid and the navbar and wrote the visual identity (colours, cards, hero) in my own CSS."
           },
           {
-            "title": "Swiper for the testimonials",
-            "body": "A touch-friendly slider with autoplay and clickable pagination, instead of building one from scratch."
+            "title": "Swiper, hosted locally",
+            "body": "A touch-friendly slider with clickable pagination. I serve it from the repo instead of a CDN, pause autoplay on hover and turn it off for reduced motion."
           }
         ],
         "outcome": [
           "A seven-section responsive Arabic landing page: hero, story, products, features, testimonials, call to action and footer.",
-          "Scroll-triggered animations, animated counters, a scroll-spy navbar and a testimonials slider.",
+          "Scroll reveals, animated counters, a scroll-spy navbar that closes on mobile after a tap, and a testimonials slider. The page passes an automated axe accessibility check.",
           "Live on GitHub Pages with the code public."
         ],
-        "learned": "This project taught me how much work lives in the details of animation timing and RTL. If I rebuilt it today I would share one reveal helper across every section instead of one observer per block, and respect reduced-motion settings."
+        "learned": "This project taught me how much work lives in the details of animation timing and RTL, and that a demo should never pretend to be a real shop: dead buttons and invented numbers hurt trust, so unfinished parts are now labelled instead of left looking real."
       },
       "qr": {
-        "idea": "A one-screen landing page for a QR-code product, built to practice a polished first impression: a bold hero, subtle depth, and an endless strip of partner logos that signals trust.",
+        "idea": "A one-screen demo landing page, built to practice a polished first impression: a bold hero, subtle depth, and an endless strip of partner logos. The company names are fictional and the page is labelled as sample content.",
         "role": "Solo project: design, HTML, CSS and JavaScript.",
         "challenges": [
           {
             "title": "A seamless logo marquee",
-            "body": "The partner strip scrolls forever with no visible jump. The logos are duplicated and the track moves by exactly half of its width, so the loop restarts invisibly. It pauses on hover, and soft fades on both edges hide where logos enter and leave."
+            "body": "The partner strip scrolls forever with no visible jump. The logos are duplicated and the track moves by exactly half of its width, so the loop restarts invisibly. It pauses on hover, soft fades on both edges hide where logos enter and leave, and the duplicate half is hidden from screen readers."
           },
           {
             "title": "Depth without heaviness",
-            "body": "The hero content drifts slightly slower than the scroll for a parallax feel, using a passive scroll listener so scrolling is never blocked. Sections fade up once through IntersectionObserver."
+            "body": "The hero content drifts slightly slower than the scroll for a parallax feel, using a passive scroll listener throttled with requestAnimationFrame. Sections fade up once through IntersectionObserver."
+          },
+          {
+            "title": "A bug I found in review",
+            "body": "The page loaded its script from the wrong path, so the parallax and fade-ups silently never ran. Checking the network panel in a real browser run showed the 404. Fixing the path was one line, but it taught me to test the deployed behaviour and not only how it looks."
           }
         ],
         "decisions": [
           {
             "title": "CSS for motion, JavaScript only where needed",
-            "body": "The marquee, hero entrance and glow are CSS animations, which the browser can run smoothly. JavaScript only decides when something becomes visible."
+            "body": "The marquee and hero entrance are CSS animations, which the browser can run smoothly. JavaScript only decides when something becomes visible."
           },
           {
-            "title": "Bootstrap for responsiveness",
-            "body": "Spacing and breakpoints are tuned in the stylesheet so the marquee and cards stay balanced on phones."
+            "title": "Content stays visible without JavaScript",
+            "body": "The reveal classes are added by the script, so the page is fully readable if it fails. All motion also stops for visitors who prefer reduced motion."
           }
         ],
         "outcome": [
-          "A focused, fast landing page with a hero entrance, parallax, scroll reveals and an infinite marquee.",
-          "Responsive on phone, tablet and desktop.",
+          "A focused landing page with a hero entrance, parallax, scroll reveals and an infinite marquee.",
+          "Responsive on phone, tablet and desktop, with no horizontal overflow, and no accessibility violations in an automated axe check.",
           "Live on Vercel with the code public."
         ],
-        "learned": "Small, well-timed animation does more for perceived quality than many effects. Next time I would add a prefers-reduced-motion fallback from the start and compress the logo images further."
+        "learned": "Small, well-timed animation does more for perceived quality than many effects, and a missing file can hide behind a page that still looks fine. Next time I would test the live page in a browser console before calling it done, and compress the logo images further."
       },
       "alex": {
         "idea": "A dark portfolio template for a back-end developer, built to practise layout, CSS modules and small interactions. The challenge was to make a back-end profile feel visual, so the hero types out a real API route as if you were watching the code being written. All the content (the name, companies, numbers and projects) is made-up sample data, and the page says so.",
