@@ -13,6 +13,14 @@ const overlayLink = cn(
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
 )
 
+// Same two buttons, styled for the card body (touch devices have no hover, so the image overlay is not used there).
+const bodyLink = cn(
+  'inline-flex items-center gap-2 rounded-full border border-fg/15 bg-fg/5 px-[1.1rem] py-[0.55rem]',
+  'font-system text-[0.85rem] font-medium text-fg no-underline',
+  'transition-[background-color,border-color] duration-300 hover:border-accent hover:bg-accent/15',
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent',
+)
+
 interface ProjectCardProps {
   project: Project
   /** Position in the list: cards in the same row reveal one after another (0.1s apart). */
@@ -41,7 +49,7 @@ export default function ProjectCard({ project, staggerIndex }: ProjectCardProps)
           loading="lazy"
           className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/70 opacity-0 transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100">
+        <div className="absolute inset-0 flex items-center justify-center gap-4 bg-black/70 opacity-0 transition-opacity duration-300 group-focus-within:opacity-100 group-hover:opacity-100 [@media(hover:none)]:hidden">
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={overlayLink}>
             <i className="fas fa-external-link-alt" aria-hidden="true"></i>
             {t('projects.liveDemo')}
@@ -77,6 +85,19 @@ export default function ProjectCard({ project, staggerIndex }: ProjectCardProps)
             </li>
           ))}
         </ul>
+        {/* Touch devices: the same links, always visible under the tags. Hidden where hover exists. */}
+        <div className="mt-5 hidden flex-wrap gap-3 [@media(hover:none)]:flex">
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={bodyLink}>
+            <i className="fas fa-external-link-alt" aria-hidden="true"></i>
+            {t('projects.liveDemo')}
+            <span className="sr-only"> {t('projects.opensInNewTab', { title })}</span>
+          </a>
+          <a href={project.codeUrl} target="_blank" rel="noopener noreferrer" className={bodyLink}>
+            <i className="fas fa-code" aria-hidden="true"></i>
+            {t('projects.code')}
+            <span className="sr-only"> {t('projects.opensInNewTab', { title })}</span>
+          </a>
+        </div>
         <Link
           to={localize(`/projects/${project.id}`)}
           className="group/cs mt-5 inline-flex items-center gap-2 font-system text-[0.9rem] font-semibold text-accent-fg no-underline hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
