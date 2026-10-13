@@ -109,6 +109,10 @@
       "weather": {
         "title": "Weather Forecast App",
         "description": "A responsive three-day weather forecast with live city search suggestions, a °C/°F toggle, and clear fallbacks when the network or the API fails. Plain HTML, CSS and JavaScript."
+      },
+      "portfolio": {
+        "title": "Bilingual Developer Portfolio",
+        "description": "This site: an English and Arabic (RTL) portfolio built with React, TypeScript and Tailwind CSS, with prerendered pages, light and dark themes, and a tested content model."
       }
     },
     "viewCaseStudy": "Case study"
@@ -509,6 +513,44 @@
           "Live on Vercel with the code public."
         ],
         "learned": "Most of the work in a small API app is not the happy path, it is cancelled requests, error messages and bad data. Next I would add unit tests for the data-shaping and formatting functions, and put the API key behind a tiny serverless proxy so it is not exposed to the browser at all."
+      },
+      "portfolio": {
+        "idea": "I wanted a portfolio that is itself proof of how I work: strict TypeScript, a real design system, full Arabic right-to-left support, and the same honesty I now apply to every project in it. It started as a Bootstrap and JavaScript page and became a typed, tested, bilingual React application.",
+        "role": "Solo project: planning, design, all the code, content in two languages, tests and deployment.",
+        "challenges": [
+          {
+            "title": "One site, two languages and two directions",
+            "body": "The URL decides the language: the root is English and /ar is Arabic with dir=\"rtl\". Every translation key is typed from the English file, and a test fails if the Arabic file is missing a key or has a different shape, so the two languages cannot drift apart."
+          },
+          {
+            "title": "A single-page app that still shares well",
+            "body": "A plain Vite app sends crawlers and link previews an empty page. A build step renders every route to its own static HTML file with its own title, description and language, and the sitemap is generated from the same list of project ids."
+          },
+          {
+            "title": "Keeping the content honest as it grows",
+            "body": "Every project must have a case study with an idea, a role, at least two challenges, decisions and outcomes, in both languages. A test enforces it, so adding a project without writing it up fails the build instead of shipping a thin page."
+          }
+        ],
+        "decisions": [
+          {
+            "title": "Tailwind v4 with design tokens",
+            "body": "Colours, spacing and themes live as tokens in one stylesheet. The light or dark theme is applied before first paint, so there is no flash, and both themes were checked for contrast."
+          },
+          {
+            "title": "EmailJS with a honeypot instead of a backend",
+            "body": "The contact form works without a server I would have to run. The trade-off is that EmailJS keys are public by design, so the form adds a hidden honeypot field and validation. That is a light defence, not a guarantee."
+          },
+          {
+            "title": "Own prerender script instead of a framework",
+            "body": "The site has a handful of static pages, so a small script on top of Vite was enough and let me learn how server rendering actually works, instead of adopting a larger framework."
+          }
+        ],
+        "outcome": [
+          "A fast, responsive, accessible portfolio in English and Arabic with light and dark themes, deployed on Vercel with security headers.",
+          "A strict TypeScript codebase with a Vitest suite covering translations, case studies, validation, themes and page metadata.",
+          "A content workflow where each project gets a card and a bilingual case study, checked automatically."
+        ],
+        "learned": "A portfolio is never finished, but it is a good place to practise engineering habits: types for content, tests for the things that silently break, and honesty about what each project really is. Next I would add continuous integration to run the checks on every push, and hydrate the prerendered pages instead of re-rendering them."
       }
     }
   }

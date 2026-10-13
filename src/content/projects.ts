@@ -7,6 +7,7 @@ import landingPage from '@/assets/images/velora.webp'
 import alexPortfolio from '@/assets/images/alex-portfolio.webp'
 import weatherApp from '@/assets/images/weather.webp'
 import qrLandingPage from '@/assets/images/qr-landing.webp'
+import portfolioSite from '@/assets/images/portfolio.webp'
 
 export type ProjectCategory = 'ecommerce' | 'landing' | 'portfolio' | 'app'
 export type { ProjectId }
@@ -24,6 +25,15 @@ export interface Project {
 }
 
 export const projectsData: readonly Project[] = [
+  {
+    id: 'portfolio',
+    category: 'portfolio',
+    image: portfolioSite,
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    liveUrl: 'https://medo-kalel-portfolio.vercel.app/',
+    codeUrl: 'https://github.com/medokalel/medo-kalel-portfolio',
+    date: '2026-10-14'
+  },
   {
     id: 'ecommerce',
     category: 'ecommerce',
