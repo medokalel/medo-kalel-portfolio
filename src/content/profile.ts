@@ -22,7 +22,7 @@ export const socialLinks: readonly SocialLink[] = [
   {
     id: 'linkedin',
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/mohamed-khalel1',
+    href: 'https://www.linkedin.com/in/mohamed-khalil1',
     icon: 'fab fa-linkedin-in',
   },
   {
