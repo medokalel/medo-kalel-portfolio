@@ -157,12 +157,14 @@ export default function Navbar() {
         aria-label={t("nav.siteMenu")}
         inert={!isOpen}
         className={cn(
-          "fixed end-0 top-0 z-[1100] h-screen w-[300px] border-s border-line bg-drawer",
-          "transition-transform duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
+          "fixed end-0 top-0 z-[1100] h-screen w-[300px] border-s border-line bg-drawer md:hidden",
+          // visibility is part of the transition so a closed drawer is never painted: when the language flips
+          // the direction, the off-screen position flips sides and would otherwise sweep across the page.
+          "transition-[transform,visibility] duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]",
           // Shadow only while open — a closed drawer's shadow leaks onto the page edge in light mode.
           isOpen
             ? "translate-x-0 shadow-[-10px_0_40px_rgba(0,0,0,0.5)] rtl:shadow-[10px_0_40px_rgba(0,0,0,0.5)]"
-            : "translate-x-full rtl:-translate-x-full",
+            : "invisible translate-x-full rtl:-translate-x-full",
         )}
       >
         <div className="flex flex-col gap-6 p-6">
