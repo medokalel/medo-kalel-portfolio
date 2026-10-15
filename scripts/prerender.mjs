@@ -4,7 +4,9 @@
  *   dist/index.html            ← English home (real content, English <head>)
  *   dist/ar/index.html         ← Arabic home (lang="ar" dir="rtl")
  *   dist/projects/index.html, dist/ar/projects/..., dist/projects/<id>/index.html ...
- *   dist/app-shell.html        ← the untouched empty shell, used by vercel.json for any other URL (404 page)
+ *   dist/app-shell.html        ← the untouched empty shell
+ *   dist/404.html              ← the same shell: Vercel serves it with a real HTTP 404 for any URL that has no page,
+ *                                and the app then renders its "page not found" screen
  *
  * The browser still renders the app itself on top of this HTML, so behaviour is unchanged;
  * crawlers, link previews (WhatsApp, LinkedIn, X) and slow connections get real content and per-page meta tags.
@@ -22,6 +24,7 @@ const { render, prerenderPaths } = await import(pathToFileURL(join(root, 'dist-s
 
 const template = await readFile(join(dist, 'index.html'), 'utf8')
 await copyFile(join(dist, 'index.html'), join(dist, 'app-shell.html'))
+await copyFile(join(dist, 'index.html'), join(dist, '404.html'))
 
 const escapeHtml = (text) => text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -75,4 +78,4 @@ for (const path of prerenderPaths) {
   count++
 }
 
-console.log(`prerender: wrote ${count} pages (+ app-shell.html)`)
+console.log(`prerender: wrote ${count} pages (+ app-shell.html, 404.html)`)

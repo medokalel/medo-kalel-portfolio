@@ -38,7 +38,8 @@ describe('security headers (vercel.json)', () => {
     }
   })
 
-  it('falls back to the empty app shell for URLs that have no prerendered page', () => {
-    expect(config.rewrites).toContainEqual({ source: '/(.*)', destination: '/app-shell.html' })
+  it('has no catch-all rewrite, so unknown URLs get a real 404 (served from dist/404.html) instead of a 200 soft-404', () => {
+    expect(config.rewrites ?? []).not.toContainEqual({ source: '/(.*)', destination: '/app-shell.html' })
+    expect(config.rewrites ?? []).toHaveLength(0)
   })
 })
